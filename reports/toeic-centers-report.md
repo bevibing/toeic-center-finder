@@ -2,10 +2,10 @@
 
 ## Summary
 - Scanned schedules: 19
-- Observed centers: 236
-- CSV centers: 285
+- Observed centers: 243
+- CSV centers: 289
 - New centers: 0
-- Stale candidates: 49
+- Stale candidates: 46
 - Changed metadata: 0
 - Manual review: 0
 
@@ -44,9 +44,9 @@
 - PBT_144 울산상고 | 울산
 - PBT_179 (unknown) | -
 - PBT_360 (unknown) | -
-- PBT_476 (unknown) | -
 - PBT_569 (unknown) | -
 - PBT_607 (unknown) | -
+- PBT_623 삼일공고 | 경기
 - PBT_644 (unknown) | -
 - PBT_647 (unknown) | -
 - PBT_655 (unknown) | -
@@ -59,7 +59,6 @@
 - PBT_973 서운중 | 서울
 - PBT_974 (unknown) | -
 - PBT_B03 (unknown) | -
-- PBT_D31 경암중 | 대구
 - PBT_D44 (unknown) | -
 - PBT_D86 광주중 | 광주
 - PBT_E16 인제대 신어관 | 경남
@@ -76,12 +75,10 @@
 - PBT_M46 광남고 | 서울
 - PBT_M50 (unknown) | -
 - PBT_M71 (unknown) | -
-- PBT_M76 성명여중 | 대구
 - PBT_M91 동탄목동중 | 경기
 - PBT_N03 (unknown) | -
 - PBT_N08 목포대 정보종합센터 | 전남
 - PBT_N19 (unknown) | -
-- PBT_N21 창원문성대 기술관(10호관) | 경남
 - PBT_N71 인천바이오과학고 | 인천
 
 ## Changed Metadata

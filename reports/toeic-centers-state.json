@@ -332,6 +332,12 @@
       "bigArea": "대전"
     },
     {
+      "centerCode": "PBT_405",
+      "centerName": "동신대(정보전산센터)",
+      "address": "전라남도 나주시 건재로 185",
+      "bigArea": "전남"
+    },
+    {
       "centerCode": "PBT_421",
       "centerName": "광주영천중",
       "address": "광주광역시 광산구 사암로340번안길 21",
@@ -372,6 +378,12 @@
       "centerName": "원광대새천년관",
       "address": "전라북도 익산시 익산대로33길 23",
       "bigArea": "전북"
+    },
+    {
+      "centerCode": "PBT_476",
+      "centerName": "광주봉산중(산월동)",
+      "address": "광주광역시 광산구 산월로 67",
+      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_491",
@@ -758,6 +770,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_B17",
+      "centerName": "약사중",
+      "address": "울산광역시 중구 평산4길 10 (약사동, 약사중학교)",
+      "bigArea": "울산"
+    },
+    {
       "centerCode": "PBT_B25",
       "centerName": "강원대 강릉캠 인문관",
       "address": "강원특별자치도 강릉시 죽헌길 7 (지변동, 강원대학교 강릉캠퍼스) 강원대학교 강릉캠퍼스 인문관",
@@ -965,6 +983,12 @@
       "centerCode": "PBT_E45",
       "centerName": "천안서여중",
       "address": "충청남도 천안시 동남구 천안여상로 44 (봉명동, 천안서여자중학교,천안여자상업고등학교)",
+      "bigArea": "충청"
+    },
+    {
+      "centerCode": "PBT_E46",
+      "centerName": "천안상고",
+      "address": "충청남도 천안시 서북구 천일고1길 43-9 (신당동, 천안상업고등학교)",
       "bigArea": "충청"
     },
     {
@@ -1475,6 +1499,12 @@
       "centerCode": "PBT_N62",
       "centerName": "수리고",
       "address": "경기도 군포시 수리산로 39 (산본동, 수리고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N63",
+      "centerName": "한국방송통신대 성남시학습관",
+      "address": "경기도 성남시 분당구 성남대로 150 (구미동, 한국방송통신대학교 성남시학습관)",
       "bigArea": "경기"
     },
     {

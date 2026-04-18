@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 19,
-    "observedCenterCount": 236,
-    "csvCenterCount": 285,
+    "observedCenterCount": 243,
+    "csvCenterCount": 289,
     "newCenterCount": 0,
-    "staleCenterCount": 49,
+    "staleCenterCount": 46,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -150,12 +150,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_476",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
-    },
-    {
       "centerCode": "PBT_569",
       "centerName": null,
       "address": null,
@@ -166,6 +160,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_623",
+      "centerName": "삼일공고",
+      "address": "경기도 수원시 팔달구 수원천로392번길 44-60 (매향동, 삼일공고)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_644",
@@ -238,12 +238,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_D31",
-      "centerName": "경암중",
-      "address": "대구광역시 달서구 당산로30길 20 (성당동, 경화여자고등학교, 경암중학교) 경암중학교",
-      "bigArea": "대구"
     },
     {
       "centerCode": "PBT_D44",
@@ -342,12 +336,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_M76",
-      "centerName": "성명여중",
-      "address": "대구광역시 중구 국채보상로102길 48 (동산동, 성명여중,신명고등학교)",
-      "bigArea": "대구"
-    },
-    {
       "centerCode": "PBT_M91",
       "centerName": "동탄목동중",
       "address": "경기도 화성시 동탄순환대로20길 52 (목동)",
@@ -370,12 +358,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_N21",
-      "centerName": "창원문성대 기술관(10호관)",
-      "address": "경상남도 창원시 성산구 충혼로 91 (두대동, 창원문성대학) 창원문성대학교 기술관(10호관)",
-      "bigArea": "경남"
     },
     {
       "centerCode": "PBT_N71",
