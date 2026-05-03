@@ -344,6 +344,12 @@
       "bigArea": "광주"
     },
     {
+      "centerCode": "PBT_429",
+      "centerName": "광주화정중",
+      "address": "광주광역시 서구 화운로 53",
+      "bigArea": "광주"
+    },
+    {
       "centerCode": "PBT_432",
       "centerName": "전주공고",
       "address": "전라북도 전주시 덕진구 여산로 101",
@@ -1112,6 +1118,12 @@
       "bigArea": "강원"
     },
     {
+      "centerCode": "PBT_H29",
+      "centerName": "김천대 종합강의동",
+      "address": "경상북도 김천시 대학로 214 (삼락동, 김천대학교) 종합강의동",
+      "bigArea": "경북"
+    },
+    {
       "centerCode": "PBT_H34",
       "centerName": "청담중",
       "address": "서울특별시 강남구 압구정로61길 36 (청담동, 청담중학교)",
@@ -1121,6 +1133,12 @@
       "centerCode": "PBT_H38",
       "centerName": "동서울대 10호관",
       "address": "경기도 성남시 수정구 복정로 76 (복정동, 동서울대학) 10호관",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_H42",
+      "centerName": "한봄고",
+      "address": "경기도 수원시 권선구 호매실로 46-93 (탑동, 한봄고등학교)",
       "bigArea": "경기"
     },
     {
@@ -1524,6 +1542,12 @@
       "centerName": "인천바이오과학고",
       "address": "인천광역시 연수구 용담로 12 (청학동, 인천바이오과학고등학교)",
       "bigArea": "인천"
+    },
+    {
+      "centerCode": "PBT_N73",
+      "centerName": "혜전대(제1강의동)",
+      "address": "충청남도 홍성군 홍성읍 대학길 25 (홍성읍, 청운대학교)",
+      "bigArea": "충청"
     }
   ]
 }

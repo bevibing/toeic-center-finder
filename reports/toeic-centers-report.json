@@ -1,19 +1,15 @@
 {
   "version": 1,
   "summary": {
-    "scannedScheduleCount": 19,
-    "observedCenterCount": 243,
-    "csvCenterCount": 289,
+    "scannedScheduleCount": 18,
+    "observedCenterCount": 242,
+    "csvCenterCount": 292,
     "newCenterCount": 0,
-    "staleCenterCount": 46,
+    "staleCenterCount": 50,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
   "scannedSchedules": [
-    {
-      "examDay": "2026-04-12",
-      "examCode": "TOE_567"
-    },
     {
       "examDay": "2026-04-26",
       "examCode": "TOE_568"
@@ -126,22 +122,28 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_070",
+      "centerName": "신림중",
+      "address": "서울특별시 관악구 신림로 40 (신림동, 서울신림중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_095",
       "centerName": null,
       "address": null,
       "bigArea": null
     },
     {
-      "centerCode": "PBT_144",
-      "centerName": "울산상고",
-      "address": "울산광역시 울주군 장검길 11",
-      "bigArea": "울산"
-    },
-    {
       "centerCode": "PBT_179",
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_334",
+      "centerName": "대전여중",
+      "address": "대전광역시 중구 보문로230번길 69",
+      "bigArea": "대전"
     },
     {
       "centerCode": "PBT_360",
@@ -160,6 +162,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_613",
+      "centerName": "원천중",
+      "address": "경기도 수원시 영통구 동수원로551번길 38 (원천동, 원천중학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_623",
@@ -192,6 +200,12 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_682",
+      "centerName": "온곡중",
+      "address": "서울특별시 노원구 노원로 492 (상계동, 온곡중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_761",
       "centerName": null,
       "address": null,
@@ -222,12 +236,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_973",
-      "centerName": "서운중",
-      "address": "서울특별시 서초구 서운로 115 (서초동, 서운중학교)",
-      "bigArea": "서울"
-    },
-    {
       "centerCode": "PBT_974",
       "centerName": null,
       "address": null,
@@ -238,6 +246,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_C54",
+      "centerName": "부명고",
+      "address": "경기도 부천시 석천로 127 (중동, 부명고등학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_D44",
@@ -288,12 +302,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_H42",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
-    },
-    {
       "centerCode": "PBT_H68",
       "centerName": null,
       "address": null,
@@ -306,6 +314,12 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_H93",
+      "centerName": "상무고",
+      "address": "광주광역시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)",
+      "bigArea": "광주"
+    },
+    {
       "centerCode": "PBT_M12",
       "centerName": null,
       "address": null,
@@ -316,6 +330,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_M31",
+      "centerName": "성재중",
+      "address": "서울특별시 강서구 허준로 36 (가양동, 성재중학교)",
+      "bigArea": "서울"
     },
     {
       "centerCode": "PBT_M46",
