@@ -308,6 +308,12 @@
       "bigArea": "충청"
     },
     {
+      "centerCode": "PBT_363",
+      "centerName": "용남중",
+      "address": "충청남도 계룡시 신도안2길 66",
+      "bigArea": "충청"
+    },
+    {
       "centerCode": "PBT_365",
       "centerName": "건양대의학관",
       "address": "충청남도 논산시 대학로 121",
@@ -485,6 +491,12 @@
       "centerCode": "PBT_628",
       "centerName": "남수원중",
       "address": "경기도 수원시 권선구 권중로 162 (권선동, 남수원중학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_644",
+      "centerName": "율전중",
+      "address": "경기도 수원시 장안구 덕영대로381번길 59 (율전동, 율전중학교)",
       "bigArea": "경기"
     },
     {
@@ -1034,6 +1046,12 @@
       "bigArea": "강원"
     },
     {
+      "centerCode": "PBT_F12",
+      "centerName": "창원공고",
+      "address": "경상남도 창원시 의창구 사화로 410 (팔용동, 창원공업고등학교)",
+      "bigArea": "경남"
+    },
+    {
       "centerCode": "PBT_F14",
       "centerName": "대성여중",
       "address": "충청북도 청주시 상당구 대성로 208 (수동, 대성여자중학교)",
@@ -1484,6 +1502,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_N50",
+      "centerName": "인하공전 6호관",
+      "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고) 6호관",
+      "bigArea": "인천"
+    },
+    {
       "centerCode": "PBT_N54",
       "centerName": "운양고",
       "address": "경기도 김포시 김포한강11로 58 (운양동, 운양고등학교)",
@@ -1548,6 +1572,12 @@
       "centerName": "혜전대(제1강의동)",
       "address": "충청남도 홍성군 홍성읍 대학길 25 (홍성읍, 청운대학교)",
       "bigArea": "충청"
+    },
+    {
+      "centerCode": "PBT_N74",
+      "centerName": "계원예술대 디자인관",
+      "address": "경기도 의왕시 계원대학로 66 (내손동, 계원예술대학교) 디자인관",
+      "bigArea": "경기"
     }
   ]
 }
