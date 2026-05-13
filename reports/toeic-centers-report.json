@@ -1,19 +1,15 @@
 {
   "version": 1,
   "summary": {
-    "scannedScheduleCount": 18,
-    "observedCenterCount": 242,
-    "csvCenterCount": 292,
+    "scannedScheduleCount": 17,
+    "observedCenterCount": 246,
+    "csvCenterCount": 296,
     "newCenterCount": 0,
     "staleCenterCount": 50,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
   "scannedSchedules": [
-    {
-      "examDay": "2026-04-26",
-      "examCode": "TOE_568"
-    },
     {
       "examDay": "2026-05-10",
       "examCode": "TOE_569"
@@ -110,6 +106,12 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_006",
+      "centerName": "구룡중",
+      "address": "서울특별시 강남구 선릉로 103 (개포동, 구룡중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_042",
       "centerName": null,
       "address": null,
@@ -140,16 +142,16 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_334",
-      "centerName": "대전여중",
-      "address": "대전광역시 중구 보문로230번길 69",
-      "bigArea": "대전"
-    },
-    {
       "centerCode": "PBT_360",
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_432",
+      "centerName": "전주공고",
+      "address": "전라북도 전주시 덕진구 여산로 101",
+      "bigArea": "전북"
     },
     {
       "centerCode": "PBT_569",
@@ -168,18 +170,6 @@
       "centerName": "원천중",
       "address": "경기도 수원시 영통구 동수원로551번길 38 (원천동, 원천중학교)",
       "bigArea": "경기"
-    },
-    {
-      "centerCode": "PBT_623",
-      "centerName": "삼일공고",
-      "address": "경기도 수원시 팔달구 수원천로392번길 44-60 (매향동, 삼일공고)",
-      "bigArea": "경기"
-    },
-    {
-      "centerCode": "PBT_644",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
     },
     {
       "centerCode": "PBT_647",
@@ -248,22 +238,16 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_C54",
-      "centerName": "부명고",
-      "address": "경기도 부천시 석천로 127 (중동, 부명고등학교)",
-      "bigArea": "경기"
+      "centerCode": "PBT_D31",
+      "centerName": "경암중",
+      "address": "대구광역시 달서구 당산로30길 20 (성당동, 경화여자고등학교, 경암중학교) 경암중학교",
+      "bigArea": "대구"
     },
     {
       "centerCode": "PBT_D44",
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_D86",
-      "centerName": "광주중",
-      "address": "광주광역시 서구 화개중앙로 60 (금호동, 광주중학교)",
-      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_E16",
@@ -278,16 +262,16 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_F18",
+      "centerName": "장안대 자아실현관",
+      "address": "경기도 화성시 봉담읍 삼천병마로 1182 (봉담읍, 장안대학교 자아실현관)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_F24",
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_F42",
-      "centerName": "정각중",
-      "address": "인천광역시 남동구 구월로 240 (구월동, 정각중학교)",
-      "bigArea": "인천"
     },
     {
       "centerCode": "PBT_H35",
@@ -378,6 +362,18 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_N60",
+      "centerName": "봉화중",
+      "address": "서울특별시 중랑구 망우로70길 89 (망우동, 봉화중학교)",
+      "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_N63",
+      "centerName": "한국방송통신대 성남시학습관",
+      "address": "경기도 성남시 분당구 성남대로 150 (구미동, 한국방송통신대학교 성남시학습관)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N71",
