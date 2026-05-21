@@ -18,10 +18,30 @@ const DEFAULT_STATE_PATH = path.resolve(
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const parseNonNegativeInteger = (value, fallback) => {
+  const parsed = Number.parseInt(value ?? "", 10);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
+};
+
 const isTransientNetworkError = (error) => {
   const code = error?.cause?.code ?? error?.code;
-  return ["ECONNRESET", "ETIMEDOUT", "ECONNREFUSED", "UND_ERR_SOCKET", "EPIPE"].includes(code);
+  return [
+    "ABORT_ERR",
+    "ECONNRESET",
+    "ETIMEDOUT",
+    "ECONNREFUSED",
+    "EAI_AGAIN",
+    "EPIPE",
+    "UND_ERR_CONNECT_TIMEOUT",
+    "UND_ERR_SOCKET",
+  ].includes(code) || error?.name === "AbortError";
 };
+
+const isRetryableHttpStatus = (status) =>
+  [408, 425, 429, 500, 502, 503, 504].includes(status);
+
+const getRetryDelayMs = (baseDelayMs, attempt, maxDelayMs) =>
+  Math.min(baseDelayMs * 2 ** attempt, maxDelayMs);
 
 const HTML_ENTITY_MAP = {
   amp: "&",
@@ -147,12 +167,22 @@ const postToToeicUpstream = async (
   fetchImpl,
   upstreamUrl,
   params,
-  { maxRetries = 2, retryBaseDelayMs = 1000 } = {},
+  {
+    maxRetries = 5,
+    retryBaseDelayMs = 1500,
+    retryMaxDelayMs = 15000,
+    requestTimeoutMs = 30000,
+  } = {},
 ) => {
   const requestContext = formatUpstreamParams(params);
   let response;
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    const controller = requestTimeoutMs > 0 ? new AbortController() : null;
+    const timeout = controller
+      ? setTimeout(() => controller.abort(), requestTimeoutMs)
+      : null;
+
     try {
       response = await fetchImpl(upstreamUrl, {
         method: "POST",
@@ -162,16 +192,31 @@ const postToToeicUpstream = async (
           Referer: "https://m.exam.toeic.co.kr/receipt/centerMap.php",
         },
         body: new URLSearchParams(params).toString(),
+        signal: controller?.signal,
       });
-      break;
+
+      if (
+        response.ok ||
+        attempt >= maxRetries ||
+        !isRetryableHttpStatus(response.status)
+      ) {
+        break;
+      }
+
+      await response.text();
+      await sleep(getRetryDelayMs(retryBaseDelayMs, attempt, retryMaxDelayMs));
     } catch (error) {
       if (attempt < maxRetries && isTransientNetworkError(error)) {
-        await sleep(retryBaseDelayMs * 2 ** attempt);
+        await sleep(getRetryDelayMs(retryBaseDelayMs, attempt, retryMaxDelayMs));
         continue;
       }
       throw new Error(`TOEIC upstream fetch failed for ${requestContext}`, {
         cause: error,
       });
+    } finally {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
     }
   }
 
@@ -354,7 +399,23 @@ export const runCenterRefresh = async ({
   compareReportPath = reportPath,
   statePath = DEFAULT_STATE_PATH,
   check = false,
-  retryBaseDelayMs = 1000,
+  maxRetries = parseNonNegativeInteger(process.env.TOEIC_UPSTREAM_MAX_RETRIES, 5),
+  retryBaseDelayMs = parseNonNegativeInteger(
+    process.env.TOEIC_UPSTREAM_RETRY_BASE_DELAY_MS,
+    1500,
+  ),
+  retryMaxDelayMs = parseNonNegativeInteger(
+    process.env.TOEIC_UPSTREAM_RETRY_MAX_DELAY_MS,
+    15000,
+  ),
+  requestTimeoutMs = parseNonNegativeInteger(
+    process.env.TOEIC_UPSTREAM_REQUEST_TIMEOUT_MS,
+    30000,
+  ),
+  requestDelayMs = parseNonNegativeInteger(
+    process.env.TOEIC_UPSTREAM_REQUEST_DELAY_MS,
+    250,
+  ),
 } = {}) => {
   const csvText = await readFile(csvPath, "utf8");
   const hasBom = csvText.startsWith("\uFEFF");
@@ -362,12 +423,28 @@ export const runCenterRefresh = async ({
   const existingCsvCenters = parseCenterCsv(csvText);
   const existingCsvLines = parseCsvRows(csvText);
   const previousStateByCode = await loadPreviousState(statePath);
+  let lastUpstreamRequestAt = 0;
+  const requestToeicUpstream = async (params) => {
+    const elapsedMs = Date.now() - lastUpstreamRequestAt;
 
-  const schedules = await postToToeicUpstream(
-    fetchImpl,
-    upstreamUrl,
+    if (lastUpstreamRequestAt > 0 && elapsedMs < requestDelayMs) {
+      await sleep(requestDelayMs - elapsedMs);
+    }
+
+    try {
+      return await postToToeicUpstream(fetchImpl, upstreamUrl, params, {
+        maxRetries,
+        retryBaseDelayMs,
+        retryMaxDelayMs,
+        requestTimeoutMs,
+      });
+    } finally {
+      lastUpstreamRequestAt = Date.now();
+    }
+  };
+
+  const schedules = await requestToeicUpstream(
     { proc: "getReceiptScheduleList", examCate: "TOE" },
-    { retryBaseDelayMs },
   );
 
   if (!Array.isArray(schedules)) {
@@ -378,11 +455,8 @@ export const runCenterRefresh = async ({
   const observedCentersByCode = new Map();
 
   for (const schedule of scannedSchedules) {
-    const regionPayload = await postToToeicUpstream(
-      fetchImpl,
-      upstreamUrl,
+    const regionPayload = await requestToeicUpstream(
       { proc: "getExamAreaInfo", examCate: "TOE", sbGoodsType1: "TOE", examCode: schedule.examCode, bigArea: "" },
-      { retryBaseDelayMs },
     );
 
     const bigAreas = Array.isArray(regionPayload?.[0])
@@ -390,11 +464,8 @@ export const runCenterRefresh = async ({
       : [];
 
     for (const bigArea of bigAreas) {
-      const areaPayload = await postToToeicUpstream(
-        fetchImpl,
-        upstreamUrl,
+      const areaPayload = await requestToeicUpstream(
         { proc: "getExamAreaInfo", examCate: "TOE", sbGoodsType1: "TOE", examCode: schedule.examCode, bigArea },
-        { retryBaseDelayMs },
       );
 
       const centers = Array.isArray(areaPayload?.[2]) ? areaPayload[2] : [];
@@ -424,9 +495,7 @@ export const runCenterRefresh = async ({
       continue;
     }
 
-    const detailPayload = await postToToeicUpstream(
-      fetchImpl,
-      upstreamUrl,
+    const detailPayload = await requestToeicUpstream(
       {
         proc: "getExamAreaInfo",
         examCate: "TOE",
@@ -435,7 +504,6 @@ export const runCenterRefresh = async ({
         bigArea: observedCenter.bigArea,
         centerCode: observedCenter.centerCode,
       },
-      { retryBaseDelayMs },
     );
 
     const detail = Array.isArray(detailPayload?.[3]) ? detailPayload[3][0] : null;

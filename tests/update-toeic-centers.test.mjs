@@ -183,6 +183,7 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
     reportPath,
     statePath,
     check: false,
+    requestDelayMs: 0,
   });
 
   assert.equal(refreshResult.pendingReport.newCenters.length, 1);
@@ -213,6 +214,7 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
     reportPath,
     statePath,
     check: true,
+    requestDelayMs: 0,
   });
 
   assert.equal(checkResult.changed, false);
@@ -240,6 +242,7 @@ test("runCenterRefresh check mode reports pending diffs without mutating files",
     reportPath,
     statePath,
     check: true,
+    requestDelayMs: 0,
   });
 
   assert.equal(result.changed, true);
@@ -277,9 +280,104 @@ test("runCenterRefresh retries on transient network errors and succeeds", async 
     statePath,
     check: false,
     retryBaseDelayMs: 0,
+    requestDelayMs: 0,
   });
 
   assert.equal(callCount, 2);
+});
+
+test("runCenterRefresh retries on retryable upstream responses and succeeds", async () => {
+  const workspace = await mkdtemp(path.join(tmpdir(), "toeic-centers-http-retry-"));
+  const csvPath = path.join(workspace, "toeic_centers.csv");
+  const reportPath = path.join(workspace, "report.json");
+  const statePath = path.join(workspace, "state.json");
+
+  await writeFile(csvPath, "", "utf8");
+
+  let callCount = 0;
+  const fetchImpl = async () => {
+    callCount++;
+    if (callCount === 1) {
+      return {
+        ok: false,
+        status: 503,
+        async text() {
+          return "temporarily unavailable";
+        },
+      };
+    }
+
+    return {
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify([]);
+      },
+    };
+  };
+
+  await runCenterRefresh({
+    fetchImpl,
+    csvPath,
+    reportPath,
+    statePath,
+    check: false,
+    retryBaseDelayMs: 0,
+    requestDelayMs: 0,
+  });
+
+  assert.equal(callCount, 2);
+});
+
+test("runCenterRefresh waits between upstream requests when configured", async () => {
+  const workspace = await mkdtemp(path.join(tmpdir(), "toeic-centers-request-delay-"));
+  const csvPath = path.join(workspace, "toeic_centers.csv");
+  const reportPath = path.join(workspace, "report.json");
+  const statePath = path.join(workspace, "state.json");
+
+  await writeFile(csvPath, "", "utf8");
+
+  const callTimes = [];
+  const fetchImpl = async (_url, init) => {
+    callTimes.push(Date.now());
+    const body = String(init?.body ?? "");
+
+    if (body === "proc=getReceiptScheduleList&examCate=TOE") {
+      return {
+        ok: true,
+        status: 200,
+        async text() {
+          return JSON.stringify([
+            {
+              exam_code: "EXAM_2026_04_26_REGULAR",
+              exam_day: "2026-04-26 00:00:00",
+            },
+          ]);
+        },
+      };
+    }
+
+    return {
+      ok: true,
+      status: 200,
+      async text() {
+        return JSON.stringify([[]]);
+      },
+    };
+  };
+
+  await runCenterRefresh({
+    fetchImpl,
+    csvPath,
+    reportPath,
+    statePath,
+    check: false,
+    requestDelayMs: 25,
+    retryBaseDelayMs: 0,
+  });
+
+  assert.equal(callTimes.length, 2);
+  assert.ok(callTimes[1] - callTimes[0] >= 20);
 });
 
 test("runCenterRefresh does not retry on non-transient errors", async () => {
@@ -305,6 +403,7 @@ test("runCenterRefresh does not retry on non-transient errors", async () => {
         statePath,
         check: false,
         retryBaseDelayMs: 0,
+        requestDelayMs: 0,
       }),
     /TOEIC upstream fetch failed/u,
   );
