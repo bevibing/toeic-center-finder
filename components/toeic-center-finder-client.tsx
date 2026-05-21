@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
+import LocationList from "@/components/location-list";
 import {
   DEFAULT_MAP_CENTER,
   EXAM_TYPES,
@@ -12,7 +13,9 @@ import { loadCenterCoordinates } from "@/lib/center-coordinates";
 import { fetchCenters, fetchExamSchedules } from "@/lib/client-api";
 import { calculateHaversineDistance } from "@/lib/distance";
 import type { ApiCenterInfo, Coordinates, ExamSchedule, Location } from "@/lib/types";
-import LocationList from "@/components/location-list";
+
+const CENTER_COORDINATES_PATH =
+  process.env.NEXT_PUBLIC_TOEIC_CENTER_COORDINATES_PATH ?? "/toeic_centers.csv";
 
 const DynamicMap = dynamic(() => import("@/components/map-client"), {
   ssr: false,
@@ -193,7 +196,7 @@ export default function ToeicCenterFinderClient({
       setIsLoadingData(true);
 
       try {
-        const coordinates = await loadCenterCoordinates();
+        const coordinates = await loadCenterCoordinates(CENTER_COORDINATES_PATH);
         setCenterCoordinates(coordinates);
       } catch (loadError) {
         console.error("Failed to load center coordinates:", loadError);

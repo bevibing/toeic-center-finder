@@ -35,6 +35,7 @@ const DATE_LABEL_FORMATTER = new Intl.DateTimeFormat(KOREA_LOCALE, {
 });
 
 const getTodayInKorea = (): string =>
+  process.env.TOEIC_TODAY_OVERRIDE ||
   new Intl.DateTimeFormat("sv-SE", {
     timeZone: KOREA_TIME_ZONE,
   }).format(new Date());
@@ -47,12 +48,11 @@ const formatExamDateLabel = (examDate: string): string => {
 const isRegion = (region: string): region is (typeof LOCATION_FILTERS)[number] =>
   LOCATION_FILTERS.includes(region as (typeof LOCATION_FILTERS)[number]);
 
-const parseSchedules = (data: unknown): ActiveSchedule[] => {
+const parseSchedules = (data: unknown, today = getTodayInKorea()): ActiveSchedule[] => {
   if (!Array.isArray(data)) {
     return [];
   }
 
-  const today = getTodayInKorea();
   const uniqueSchedules = new Map<string, string>();
 
   for (const item of data) {
@@ -95,29 +95,34 @@ const parseCenters = (data: unknown): ApiCenterInfo[] => {
   }));
 };
 
-const loadActiveSchedules = unstable_cache(
-  async (): Promise<ActiveSchedule[]> => {
-    try {
-      const data = await postToToeicUpstream(
-        {
-          proc: "getReceiptScheduleList",
-          examCate: "TOE",
-        },
-        {
-          cacheTtlSeconds: TOEIC_SCHEDULE_CACHE_TTL_SECONDS,
-        },
-      );
+const loadActiveSchedules = async (): Promise<ActiveSchedule[]> => {
+  const today = getTodayInKorea();
+  const cachedLoader = unstable_cache(
+    async (): Promise<ActiveSchedule[]> => {
+      try {
+        const data = await postToToeicUpstream(
+          {
+            proc: "getReceiptScheduleList",
+            examCate: "TOE",
+          },
+          {
+            cacheTtlSeconds: TOEIC_SCHEDULE_CACHE_TTL_SECONDS,
+          },
+        );
 
-      return parseSchedules(data);
-    } catch {
-      return [];
-    }
-  },
-  ["active-schedules"],
-  {
-    revalidate: TOEIC_SCHEDULE_CACHE_TTL_SECONDS,
-  },
-);
+        return parseSchedules(data, today);
+      } catch {
+        return [];
+      }
+    },
+    ["active-schedules", today],
+    {
+      revalidate: TOEIC_SCHEDULE_CACHE_TTL_SECONDS,
+    },
+  );
+
+  return cachedLoader();
+};
 
 const loadRegionDateLandingData = async (
   region: string,
