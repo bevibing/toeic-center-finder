@@ -242,6 +242,12 @@
       "bigArea": "부산"
     },
     {
+      "centerCode": "PBT_293",
+      "centerName": "서울전일중",
+      "address": "서울특별시 동대문구 사가정로13길 67 (전농동, 전일중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_300",
       "centerName": "문래중",
       "address": "서울특별시 영등포구 선유서로13길 6",
@@ -450,6 +456,12 @@
       "centerName": "선문대인문관",
       "address": "충청남도 아산시 탕정면 선문로221번길 70 (탕정면, 선문대학교) 인문관",
       "bigArea": "충청"
+    },
+    {
+      "centerCode": "PBT_569",
+      "centerName": "부인중",
+      "address": "경기도 부천시 상일로 62 (상동, 부인중학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_596",
@@ -964,7 +976,7 @@
     {
       "centerCode": "PBT_D81",
       "centerName": "광주주월중",
-      "address": "광주광역시 남구 옹정길 9 (주월동, 주월중학교)",
+      "address": "광주 남구 봉선로52번길 9 주월중학교",
       "bigArea": "광주"
     },
     {
@@ -1334,6 +1346,12 @@
       "bigArea": "대구"
     },
     {
+      "centerCode": "PBT_M78",
+      "centerName": "청천중",
+      "address": "인천광역시 부평구 마장로364번길 23 (청천동, 청천중학교)",
+      "bigArea": "인천"
+    },
+    {
       "centerCode": "PBT_M82",
       "centerName": "경동대 양주캠 우당관",
       "address": "경기도 양주시 경동대학로 27 (고암동, 경동대학교양주캠퍼스) 우당관",
@@ -1392,6 +1410,12 @@
       "centerName": "서천중",
       "address": "경기도 용인시 기흥구 서천동로 7 (서천동, 서천중학교)",
       "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N03",
+      "centerName": "군산기계공고",
+      "address": "전북특별자치도 군산시 군중길 28 (송풍동, 군산기계공업고등학교)",
+      "bigArea": "전북"
     },
     {
       "centerCode": "PBT_N07",
@@ -1577,6 +1601,12 @@
       "centerCode": "PBT_N74",
       "centerName": "계원예술대 디자인관",
       "address": "경기도 의왕시 계원대학로 66 (내손동, 계원예술대학교) 디자인관",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N75",
+      "centerName": "감일중",
+      "address": "경기도 하남시 감일백제로 55 (감이동, 감일중학교)",
       "bigArea": "경기"
     }
   ]
