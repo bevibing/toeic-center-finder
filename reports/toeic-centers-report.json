@@ -1,19 +1,15 @@
 {
   "version": 1,
   "summary": {
-    "scannedScheduleCount": 17,
-    "observedCenterCount": 246,
-    "csvCenterCount": 296,
+    "scannedScheduleCount": 16,
+    "observedCenterCount": 250,
+    "csvCenterCount": 299,
     "newCenterCount": 0,
-    "staleCenterCount": 50,
+    "staleCenterCount": 49,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
   "scannedSchedules": [
-    {
-      "examDay": "2026-05-10",
-      "examCode": "TOE_569"
-    },
     {
       "examDay": "2026-05-31",
       "examCode": "TOE_570"
@@ -124,12 +120,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_070",
-      "centerName": "신림중",
-      "address": "서울특별시 관악구 신림로 40 (신림동, 서울신림중학교)",
-      "bigArea": "서울"
-    },
-    {
       "centerCode": "PBT_095",
       "centerName": null,
       "address": null,
@@ -148,16 +138,10 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_432",
-      "centerName": "전주공고",
-      "address": "전라북도 전주시 덕진구 여산로 101",
-      "bigArea": "전북"
-    },
-    {
-      "centerCode": "PBT_569",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
+      "centerCode": "PBT_374",
+      "centerName": "천안공고",
+      "address": "충청남도 천안시 동남구 성황5길 17",
+      "bigArea": "충청"
     },
     {
       "centerCode": "PBT_607",
@@ -202,12 +186,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_889",
-      "centerName": "무학중",
-      "address": "서울특별시 성동구 행당로 120 (행당동, 무학중학교)",
-      "bigArea": "서울"
-    },
-    {
       "centerCode": "PBT_948",
       "centerName": null,
       "address": null,
@@ -236,6 +214,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_C70",
+      "centerName": "문곡고",
+      "address": "인천광역시 서구 청마로 52 (당하동, 인천 세무고등학교)",
+      "bigArea": "인천"
     },
     {
       "centerCode": "PBT_D31",
@@ -274,6 +258,12 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_H02",
+      "centerName": "인하공전 3호관",
+      "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고)",
+      "bigArea": "인천"
+    },
+    {
       "centerCode": "PBT_H35",
       "centerName": null,
       "address": null,
@@ -292,16 +282,16 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_H74",
+      "centerName": "광주대 호심관",
+      "address": "광주광역시 남구 효덕로 277 (진월동, 광주대학교) 호심관",
+      "bigArea": "광주"
+    },
+    {
       "centerCode": "PBT_H90",
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_H93",
-      "centerName": "상무고",
-      "address": "광주광역시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)",
-      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_M12",
@@ -319,12 +309,6 @@
       "centerCode": "PBT_M31",
       "centerName": "성재중",
       "address": "서울특별시 강서구 허준로 36 (가양동, 성재중학교)",
-      "bigArea": "서울"
-    },
-    {
-      "centerCode": "PBT_M46",
-      "centerName": "광남고",
-      "address": "서울특별시 광진구 아차산로70길 17-16 (광장동, 광남고등학교)",
       "bigArea": "서울"
     },
     {
@@ -346,10 +330,10 @@
       "bigArea": "경기"
     },
     {
-      "centerCode": "PBT_N03",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
+      "centerCode": "PBT_M98",
+      "centerName": "창원대 경영대학(21호관)",
+      "address": "경상남도 창원시 의창구 창원대학로 20 (퇴촌동, 창원대학교)",
+      "bigArea": "경남"
     },
     {
       "centerCode": "PBT_N08",
@@ -362,6 +346,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_N35",
+      "centerName": "한솔고",
+      "address": "경기도 성남시 분당구 내정로 70 (정자동, 한솔고등학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N60",
