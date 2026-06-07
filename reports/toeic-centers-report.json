@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 16,
-    "observedCenterCount": 250,
-    "csvCenterCount": 299,
+    "observedCenterCount": 256,
+    "csvCenterCount": 301,
     "newCenterCount": 0,
-    "staleCenterCount": 49,
+    "staleCenterCount": 45,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -138,12 +138,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_374",
-      "centerName": "천안공고",
-      "address": "충청남도 천안시 동남구 성황5길 17",
-      "bigArea": "충청"
-    },
-    {
       "centerCode": "PBT_607",
       "centerName": null,
       "address": null,
@@ -172,12 +166,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_682",
-      "centerName": "온곡중",
-      "address": "서울특별시 노원구 노원로 492 (상계동, 온곡중학교)",
-      "bigArea": "서울"
     },
     {
       "centerCode": "PBT_761",
@@ -216,12 +204,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_C70",
-      "centerName": "문곡고",
-      "address": "인천광역시 서구 청마로 52 (당하동, 인천 세무고등학교)",
-      "bigArea": "인천"
-    },
-    {
       "centerCode": "PBT_D31",
       "centerName": "경암중",
       "address": "대구광역시 달서구 당산로30길 20 (성당동, 경화여자고등학교, 경암중학교) 경암중학교",
@@ -250,12 +232,6 @@
       "centerName": "장안대 자아실현관",
       "address": "경기도 화성시 봉담읍 삼천병마로 1182 (봉담읍, 장안대학교 자아실현관)",
       "bigArea": "경기"
-    },
-    {
-      "centerCode": "PBT_F24",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
     },
     {
       "centerCode": "PBT_H02",

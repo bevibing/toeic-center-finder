@@ -2,10 +2,10 @@
 
 ## Summary
 - Scanned schedules: 16
-- Observed centers: 250
-- CSV centers: 299
+- Observed centers: 256
+- CSV centers: 301
 - New centers: 0
-- Stale candidates: 49
+- Stale candidates: 45
 - Changed metadata: 0
 - Manual review: 0
 
@@ -41,26 +41,22 @@
 - PBT_095 (unknown) | -
 - PBT_179 (unknown) | -
 - PBT_360 (unknown) | -
-- PBT_374 천안공고 | 충청
 - PBT_607 (unknown) | -
 - PBT_613 원천중 | 경기
 - PBT_647 (unknown) | -
 - PBT_655 (unknown) | -
 - PBT_662 (unknown) | -
-- PBT_682 온곡중 | 서울
 - PBT_761 (unknown) | -
 - PBT_948 (unknown) | -
 - PBT_957 (unknown) | -
 - PBT_965 (unknown) | -
 - PBT_974 (unknown) | -
 - PBT_B03 (unknown) | -
-- PBT_C70 문곡고 | 인천
 - PBT_D31 경암중 | 대구
 - PBT_D44 (unknown) | -
 - PBT_E16 인제대 신어관 | 경남
 - PBT_E22 (unknown) | -
 - PBT_F18 장안대 자아실현관 | 경기
-- PBT_F24 (unknown) | -
 - PBT_H02 인하공전 3호관 | 인천
 - PBT_H35 (unknown) | -
 - PBT_H40 (unknown) | -

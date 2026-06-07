@@ -1076,6 +1076,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_F24",
+      "centerName": "옥련중",
+      "address": "인천광역시 연수구 청량로 222 (옥련동, 옥련중학교)",
+      "bigArea": "인천"
+    },
+    {
       "centerCode": "PBT_F42",
       "centerName": "정각중",
       "address": "인천광역시 남동구 구월로 240 (구월동, 정각중학교)",
@@ -1248,6 +1254,12 @@
       "centerName": "경상대 가좌캠퍼스 GNU국제관",
       "address": "경상남도 진주시 진주대로 501 (가좌동, 경상국립대학교 가좌캠퍼스) 경상대 가좌캠퍼스 GNU국제관",
       "bigArea": "경남"
+    },
+    {
+      "centerCode": "PBT_K01",
+      "centerName": "목운중",
+      "address": "서울특별시 양천구 목동동로 235 (목동, 목운초등학교.중학교) 목운중학교",
+      "bigArea": "서울"
     },
     {
       "centerCode": "PBT_K26",
@@ -1530,6 +1542,12 @@
       "centerName": "인하공전 6호관",
       "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고) 6호관",
       "bigArea": "인천"
+    },
+    {
+      "centerCode": "PBT_N52",
+      "centerName": "송운중",
+      "address": "경기도 시흥시 옥구천동로 433-11 (정왕동, 송운중학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N54",
