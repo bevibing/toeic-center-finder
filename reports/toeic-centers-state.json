@@ -92,6 +92,12 @@
       "bigArea": "부산"
     },
     {
+      "centerCode": "PBT_112",
+      "centerName": "여명중",
+      "address": "부산광역시 동래구 여고로52번길 9",
+      "bigArea": "부산"
+    },
+    {
       "centerCode": "PBT_115",
       "centerName": "울산공고",
       "address": "울산광역시 남구 중앙로204번길 49 (신정동, 울산공업고등학교)",
@@ -344,6 +350,12 @@
       "bigArea": "대전"
     },
     {
+      "centerCode": "PBT_396",
+      "centerName": "지족중",
+      "address": "대전광역시 유성구 노은동로 193",
+      "bigArea": "대전"
+    },
+    {
       "centerCode": "PBT_405",
       "centerName": "동신대(정보전산센터)",
       "address": "전라남도 나주시 건재로 185",
@@ -425,6 +437,12 @@
       "centerCode": "PBT_506",
       "centerName": "신어중",
       "address": "경상남도 김해시 삼안로195번길 7",
+      "bigArea": "경남"
+    },
+    {
+      "centerCode": "PBT_507",
+      "centerName": "창원중앙중",
+      "address": "경남 창원시 성산구 반지로3번길 14 창원중앙중학교",
       "bigArea": "경남"
     },
     {
@@ -855,7 +873,7 @@
     },
     {
       "centerCode": "PBT_B93",
-      "centerName": "경일관광경영고",
+      "centerName": "안산경일고",
       "address": "경기도 안산시 단원구 석수로 131 (선부동, 경일관광경영고등학교)",
       "bigArea": "경기"
     },
@@ -1476,6 +1494,12 @@
       "centerName": "창원문성대 기술관(10호관)",
       "address": "경상남도 창원시 성산구 충혼로 91 (두대동, 창원문성대학) 창원문성대학교 기술관(10호관)",
       "bigArea": "경남"
+    },
+    {
+      "centerCode": "PBT_N22",
+      "centerName": "대구남산고",
+      "address": "대구광역시 수성구 신천동로 364 (수성동1가, 신명여중, 남산고등학교)",
+      "bigArea": "대구"
     },
     {
       "centerCode": "PBT_N24",
