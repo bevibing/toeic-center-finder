@@ -2,10 +2,10 @@
 
 ## Summary
 - Scanned schedules: 15
-- Observed centers: 247
+- Observed centers: 251
 - CSV centers: 305
 - New centers: 0
-- Stale candidates: 58
+- Stale candidates: 54
 - Changed metadata: 0
 - Manual review: 0
 
@@ -44,7 +44,6 @@
 - PBT_360 (unknown) | -
 - PBT_607 (unknown) | -
 - PBT_613 원천중 | 경기
-- PBT_644 율전중 | 경기
 - PBT_647 (unknown) | -
 - PBT_655 (unknown) | -
 - PBT_662 (unknown) | -
@@ -63,7 +62,6 @@
 - PBT_E16 인제대 신어관 | 경남
 - PBT_E22 (unknown) | -
 - PBT_F18 장안대 자아실현관 | 경기
-- PBT_F42 정각중 | 인천
 - PBT_H02 인하공전 3호관 | 인천
 - PBT_H28 강릉영동대학교 제1강의동 | 강원
 - PBT_H35 (unknown) | -
@@ -83,10 +81,8 @@
 - PBT_N19 (unknown) | -
 - PBT_N35 한솔고 | 경기
 - PBT_N50 인하공전 6호관 | 인천
-- PBT_N56 사직중 | 부산
 - PBT_N60 봉화중 | 서울
 - PBT_N61 염경중 | 서울
-- PBT_N63 한국방송통신대 성남시학습관 | 경기
 - PBT_N71 인천바이오과학고 | 인천
 
 ## Changed Metadata

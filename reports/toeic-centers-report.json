@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 15,
-    "observedCenterCount": 247,
+    "observedCenterCount": 251,
     "csvCenterCount": 305,
     "newCenterCount": 0,
-    "staleCenterCount": 58,
+    "staleCenterCount": 54,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -158,12 +158,6 @@
       "bigArea": "경기"
     },
     {
-      "centerCode": "PBT_644",
-      "centerName": "율전중",
-      "address": "경기도 수원시 장안구 덕영대로381번길 59 (율전동, 율전중학교)",
-      "bigArea": "경기"
-    },
-    {
       "centerCode": "PBT_647",
       "centerName": null,
       "address": null,
@@ -270,12 +264,6 @@
       "centerName": "장안대 자아실현관",
       "address": "경기도 화성시 봉담읍 삼천병마로 1182 (봉담읍, 장안대학교 자아실현관)",
       "bigArea": "경기"
-    },
-    {
-      "centerCode": "PBT_F42",
-      "centerName": "정각중",
-      "address": "인천광역시 남동구 구월로 240 (구월동, 정각중학교)",
-      "bigArea": "인천"
     },
     {
       "centerCode": "PBT_H02",
@@ -392,12 +380,6 @@
       "bigArea": "인천"
     },
     {
-      "centerCode": "PBT_N56",
-      "centerName": "사직중",
-      "address": "부산광역시 동래구 쇠미로51번길 30 (사직동, 사직중학교)",
-      "bigArea": "부산"
-    },
-    {
       "centerCode": "PBT_N60",
       "centerName": "봉화중",
       "address": "서울특별시 중랑구 망우로70길 89 (망우동, 봉화중학교)",
@@ -408,12 +390,6 @@
       "centerName": "염경중",
       "address": "서울특별시 강서구 양천로69길 35 (염창동, 염경중학교)",
       "bigArea": "서울"
-    },
-    {
-      "centerCode": "PBT_N63",
-      "centerName": "한국방송통신대 성남시학습관",
-      "address": "경기도 성남시 분당구 성남대로 150 (구미동, 한국방송통신대학교 성남시학습관)",
-      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N71",
