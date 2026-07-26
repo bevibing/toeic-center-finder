@@ -344,6 +344,12 @@
       "bigArea": "충청"
     },
     {
+      "centerCode": "PBT_378",
+      "centerName": "천안여중",
+      "address": "충청남도 천안시 동남구 원거리11길 31",
+      "bigArea": "충청"
+    },
+    {
       "centerCode": "PBT_380",
       "centerName": "문화여중",
       "address": "대전광역시 중구 문화로218번길 63",
@@ -599,6 +605,12 @@
       "centerCode": "PBT_743",
       "centerName": "매송중",
       "address": "경기도 성남시 분당구 탄천로 49 (이매동, 매송중학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_747",
+      "centerName": "소하중",
+      "address": "경기도 광명시 소하일로 31 (소하동, 소하중학교)",
       "bigArea": "경기"
     },
     {
@@ -1010,6 +1022,12 @@
       "bigArea": "경남"
     },
     {
+      "centerCode": "PBT_E22",
+      "centerName": "포항중",
+      "address": "경상북도 포항시 북구 학산로 45 (학산동, 포항중학교)",
+      "bigArea": "경북"
+    },
+    {
       "centerCode": "PBT_E28",
       "centerName": "대가대 취창업관(B1)",
       "address": "경상북도 경산시 하양로 13",
@@ -1037,6 +1055,12 @@
       "centerCode": "PBT_E46",
       "centerName": "천안상고",
       "address": "충청남도 천안시 서북구 천일고1길 43-9 (신당동, 천안상업고등학교)",
+      "bigArea": "충청"
+    },
+    {
+      "centerCode": "PBT_E56",
+      "centerName": "세명대 학술관",
+      "address": "충청북도 제천시 세명로 65",
       "bigArea": "충청"
     },
     {
@@ -1226,6 +1250,12 @@
       "bigArea": "제주"
     },
     {
+      "centerCode": "PBT_H68",
+      "centerName": "평택대 이공관",
+      "address": "경기도 평택시 서동대로 3825 (용이동, 평택대학교) 이공관",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_H74",
       "centerName": "광주대 호심관",
       "address": "광주광역시 남구 효덕로 277 (진월동, 광주대학교) 호심관",
@@ -1242,6 +1272,12 @@
       "centerName": "진접고",
       "address": "경기도 남양주시 진접읍 해밀예당2로 13 (진접읍, 진접고등학교)",
       "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_H82",
+      "centerName": "동강대 인문사회관",
+      "address": "광주광역시 북구 동문대로 50 (두암동, 동강대학,동신중.고,동신여중.고등학교) 동강대 인문사회관",
+      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_H86",
@@ -1550,6 +1586,12 @@
       "bigArea": "경남"
     },
     {
+      "centerCode": "PBT_N40",
+      "centerName": "신안산대 목양관",
+      "address": "경기도 안산시 단원구 신안산대학로 135 (초지동, 신안산대학교) 목양관",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_N43",
       "centerName": "포항대 근면관",
       "address": "경상북도 포항시 북구 흥해읍 포항대학로 7 (흥해읍, 포항대학교) 근면관",
@@ -1650,6 +1692,12 @@
       "centerName": "감일중",
       "address": "경기도 하남시 감일백제로 55 (감이동, 감일중학교)",
       "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N77",
+      "centerName": "동아마이스터고",
+      "address": "대전광역시 동구 충정로 97 (자양동, 동아마이스터고등학교)",
+      "bigArea": "대전"
     }
   ]
 }
