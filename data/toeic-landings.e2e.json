@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "source": {
+    "name": "한국TOEIC위원회 시험접수",
+    "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+  },
+  "knownExamDates": [
+    "2026-03-15",
+    "2026-04-26",
+    "2026-05-31"
+  ],
+  "entries": [
+    {
+      "examDate": "2026-03-15",
+      "examCode": "EXAM_2026_03_15",
+      "region": "서울",
+      "updatedAt": "2026-03-01T00:00:00.000Z",
+      "centers": []
+    },
+    {
+      "examDate": "2026-04-26",
+      "examCode": "EXAM_2026_04_26",
+      "region": "서울",
+      "updatedAt": "2026-04-01T00:00:00.000Z",
+      "centers": [
+        {
+          "center_code": "PBT_004",
+          "center_name": "서울 송파 테스트센터",
+          "address": "서울특별시 강동구 성내로 13"
+        },
+        {
+          "center_code": "PBT_015",
+          "center_name": "서울 강북 & 테스트센터",
+          "address": "서울특별시 강북구 삼양로 173"
+        },
+        {
+          "center_code": "MISSING_COORD_001",
+          "center_name": "좌표 없는 시험장",
+          "address": "서울특별시 종로구 세종대로 1"
+        }
+      ]
+    },
+    {
+      "examDate": "2026-04-26",
+      "examCode": "EXAM_2026_04_26",
+      "region": "경기",
+      "updatedAt": "2026-04-01T00:00:00.000Z",
+      "centers": [
+        {
+          "center_code": "PBT_231",
+          "center_name": "안양 테스트센터",
+          "address": "경기도 안양시 동안구 평촌대로 212"
+        }
+      ]
+    },
+    {
+      "examDate": "2026-04-26",
+      "examCode": "EXAM_2026_04_26",
+      "region": "인천",
+      "updatedAt": "2026-04-01T00:00:00.000Z",
+      "centers": [
+        {
+          "center_code": "PBT_720",
+          "center_name": "인천 테스트센터",
+          "address": "인천광역시 부평구 부평대로 88"
+        }
+      ]
+    }
+  ]
+}

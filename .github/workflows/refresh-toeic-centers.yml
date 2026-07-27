@@ -56,6 +56,7 @@ jobs:
           body-path: /tmp/toeic-centers-pr-report.md
           add-paths: |
             public/toeic_centers.csv
+            data/toeic-landings.json
             reports/toeic-centers-report.json
             reports/toeic-centers-report.md
             reports/toeic-centers-state.json

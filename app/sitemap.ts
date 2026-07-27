@@ -5,7 +5,7 @@ import { getSiteUrl } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-const CONTENT_UPDATED = new Date("2026-03-30");
+const CONTENT_UPDATED = new Date("2026-07-27");
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
@@ -30,15 +30,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${siteUrl}/about`,
+      lastModified: CONTENT_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/privacy`,
+      lastModified: CONTENT_UPDATED,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     ...LOCATION_FILTERS.map((region) => ({
-      url: `${siteUrl}/regions/${region}`,
+      url: `${siteUrl}/regions/${encodeURIComponent(region)}`,
       lastModified: CONTENT_UPDATED,
       changeFrequency: "daily" as const,
       priority: 0.8,
     })),
     ...indexedLandings.map((entry) => ({
-      url: `${siteUrl}/regions/${entry.region}/dates/${entry.examDate}`,
-      lastModified: new Date(entry.examDate),
+      url: `${siteUrl}/regions/${encodeURIComponent(entry.region)}/dates/${entry.examDate}`,
+      lastModified: new Date(entry.lastModified),
       changeFrequency: "daily" as const,
       priority: 0.75,
     })),

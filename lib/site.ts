@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { getConfiguredSiteUrl } from "@/lib/site-config";
+import type { ApiCenterInfo } from "@/lib/types";
 
-const DEFAULT_SITE_NAME = "토익 시험장 찾기";
+export const SITE_NAME = "토익맵";
+export const SITE_ALTERNATE_NAME = "TOEIC Center Map";
 const DEFAULT_DESCRIPTION =
   "지역별 토익 시험장과 시험 일정을 한 번에 확인하고, 현재 위치 기준으로 가까운 시험장을 빠르게 찾을 수 있습니다.";
 const DEFAULT_KEYWORDS = [
@@ -42,7 +44,7 @@ export const buildPageMetadata = ({
   title,
   description,
   keywords: [...DEFAULT_KEYWORDS, ...keywords],
-  applicationName: DEFAULT_SITE_NAME,
+  applicationName: SITE_NAME,
   alternates: {
     canonical: path,
   },
@@ -51,7 +53,7 @@ export const buildPageMetadata = ({
     description,
     type: "website",
     url: buildAbsoluteUrl(path),
-    siteName: DEFAULT_SITE_NAME,
+    siteName: SITE_NAME,
     locale: "ko_KR",
     images: [
       {
@@ -96,10 +98,16 @@ export const buildMetadata = (): Metadata =>
 export const buildWebsiteStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: DEFAULT_SITE_NAME,
+  name: SITE_NAME,
+  alternateName: SITE_ALTERNATE_NAME,
   url: getSiteUrl(),
   description: DEFAULT_DESCRIPTION,
   inLanguage: "ko-KR",
+  publisher: {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: getSiteUrl(),
+  },
 });
 
 export const buildBreadcrumbStructuredData = (
@@ -155,4 +163,69 @@ export const buildFaqStructuredData = (
       text: item.answer,
     },
   })),
+});
+
+export const buildCenterCollectionStructuredData = ({
+  name,
+  description,
+  path,
+  centers,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  centers: ApiCenterInfo[];
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name,
+  description,
+  url: buildAbsoluteUrl(path),
+  inLanguage: "ko-KR",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: centers.length,
+    itemListElement: centers.map((center, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Place",
+        "@id": `${buildAbsoluteUrl(path)}#center-${encodeURIComponent(center.center_code)}`,
+        name: center.center_name,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: center.address,
+          addressCountry: "KR",
+        },
+      },
+    })),
+  },
+});
+
+export const buildWebPageStructuredData = ({
+  name,
+  description,
+  path,
+  dateModified,
+  sourceUrl,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  dateModified: string;
+  sourceUrl: string;
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name,
+  description,
+  url: buildAbsoluteUrl(path),
+  inLanguage: "ko-KR",
+  dateModified,
+  isBasedOn: sourceUrl,
+  publisher: {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: getSiteUrl(),
+  },
 });

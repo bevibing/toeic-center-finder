@@ -5,6 +5,13 @@ import {
   TOEIC_SCHEDULE_CACHE_TTL_SECONDS,
 } from "@/lib/constants";
 import { decodeHtmlEntities } from "@/lib/html-entities";
+import {
+  findArchivedLanding,
+  getArchivedSchedules,
+  getToeicLandingArchive,
+  isKnownArchivedExamDate,
+  TOEIC_OFFICIAL_SCHEDULE_URL,
+} from "@/lib/toeic-archive";
 import { postToToeicUpstream } from "@/lib/toeic-proxy";
 import type { ApiCenterInfo, ExamSchedule } from "@/lib/types";
 
@@ -16,6 +23,9 @@ export interface RegionPageSummary {
   examDate: string;
   centerCount: number;
   topCenters: ApiCenterInfo[];
+  updatedAt: string;
+  sourceUrl: string;
+  dataSource: "live" | "archive";
 }
 
 export interface RegionDateLandingData {
@@ -23,6 +33,10 @@ export interface RegionDateLandingData {
   examCode: string;
   region: string;
   centers: ApiCenterInfo[];
+  status: "active" | "archived";
+  updatedAt: string;
+  sourceUrl: string;
+  dataSource: "live" | "archive";
 }
 
 const KOREA_LOCALE = "ko-KR";
@@ -34,7 +48,7 @@ const DATE_LABEL_FORMATTER = new Intl.DateTimeFormat(KOREA_LOCALE, {
   timeZone: KOREA_TIME_ZONE,
 });
 
-const getTodayInKorea = (): string =>
+export const getTodayInKorea = (): string =>
   process.env.TOEIC_TODAY_OVERRIDE ||
   new Intl.DateTimeFormat("sv-SE", {
     timeZone: KOREA_TIME_ZONE,
@@ -110,10 +124,21 @@ const loadActiveSchedules = async (): Promise<ActiveSchedule[]> => {
           },
         );
 
-        return parseSchedules(data, today);
+        const parsedSchedules = parseSchedules(data, today);
+
+        if (parsedSchedules.length > 0) {
+          return parsedSchedules;
+        }
       } catch {
-        return [];
+        // A checked-in official-data snapshot keeps the map and landing pages
+        // available while the upstream service is temporarily unavailable.
       }
+
+      const archivedSchedules = await getArchivedSchedules(today);
+      return archivedSchedules.map((schedule) => ({
+        ...schedule,
+        displayLabel: formatExamDateLabel(schedule.exam_day),
+      }));
     },
     ["active-schedules", today],
     {
@@ -134,9 +159,28 @@ const loadRegionDateLandingData = async (
 
   const schedules = await loadActiveSchedules();
   const schedule = schedules.find((entry) => entry.exam_day === examDate);
+  const archivedLanding = await findArchivedLanding(region, examDate);
+  const archive = await getToeicLandingArchive();
 
   if (!schedule) {
-    return null;
+    const isPastKnownExam =
+      examDate < getTodayInKorea() &&
+      (archivedLanding !== null || (await isKnownArchivedExamDate(examDate)));
+
+    if (!isPastKnownExam) {
+      return null;
+    }
+
+    return {
+      examDate,
+      examCode: archivedLanding?.examCode ?? "",
+      region,
+      centers: archivedLanding?.centers ?? [],
+      status: "archived",
+      updatedAt: archivedLanding?.updatedAt ?? archive.generatedAt,
+      sourceUrl: archive.source.url || TOEIC_OFFICIAL_SCHEDULE_URL,
+      dataSource: "archive",
+    };
   }
 
   const cachedLoader = unstable_cache(
@@ -158,7 +202,20 @@ const loadRegionDateLandingData = async (
         const centers = parseCenters(data);
 
         if (centers.length === 0) {
-          return null;
+          if (!archivedLanding || archivedLanding.centers.length === 0) {
+            return null;
+          }
+
+          return {
+            examDate,
+            examCode: archivedLanding.examCode,
+            region,
+            centers: archivedLanding.centers,
+            status: "active",
+            updatedAt: archivedLanding.updatedAt,
+            sourceUrl: archive.source.url || TOEIC_OFFICIAL_SCHEDULE_URL,
+            dataSource: "archive",
+          };
         }
 
         return {
@@ -166,9 +223,26 @@ const loadRegionDateLandingData = async (
           examCode: schedule.exam_code,
           region,
           centers,
+          status: "active",
+          updatedAt: archivedLanding?.updatedAt ?? archive.generatedAt,
+          sourceUrl: archive.source.url || TOEIC_OFFICIAL_SCHEDULE_URL,
+          dataSource: "live",
         };
       } catch {
-        return null;
+        if (!archivedLanding || archivedLanding.centers.length === 0) {
+          return null;
+        }
+
+        return {
+          examDate,
+          examCode: archivedLanding.examCode,
+          region,
+          centers: archivedLanding.centers,
+          status: "active",
+          updatedAt: archivedLanding.updatedAt,
+          sourceUrl: archive.source.url || TOEIC_OFFICIAL_SCHEDULE_URL,
+          dataSource: "archive",
+        };
       }
     },
     ["region-date-landing", region, examDate],
@@ -203,6 +277,9 @@ export const getRegionPageSummaries = async (
         examDate: schedule.exam_day,
         centerCount: landingData.centers.length,
         topCenters: landingData.centers.slice(0, 3),
+        updatedAt: landingData.updatedAt,
+        sourceUrl: landingData.sourceUrl,
+        dataSource: landingData.dataSource,
       };
     }),
   );
@@ -211,29 +288,15 @@ export const getRegionPageSummaries = async (
 };
 
 export const getIndexedRegionDateLandings = async (): Promise<
-  Array<{ region: string; examDate: string }>
+  Array<{ region: string; examDate: string; lastModified: string }>
 > => {
-  const schedules = await loadActiveSchedules();
-  const entries: Array<{ region: string; examDate: string } | null> = await Promise.all(
-    LOCATION_FILTERS.flatMap((region) =>
-      schedules.map(async (schedule) => {
-        const landingData = await loadRegionDateLandingData(region, schedule.exam_day);
+  const archive = await getToeicLandingArchive();
 
-        if (!landingData) {
-          return null;
-        }
-
-        return {
-          region,
-          examDate: schedule.exam_day,
-        };
-      }),
-    ),
-  );
-
-  return entries.filter(
-    (value): value is { region: string; examDate: string } => value !== null,
-  );
+  return archive.entries.map((entry) => ({
+    region: entry.region,
+    examDate: entry.examDate,
+    lastModified: entry.updatedAt,
+  }));
 };
 
 export const getExamDateLabel = (examDate: string): string => formatExamDateLabel(examDate);

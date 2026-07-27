@@ -1,4 +1,4 @@
-# 내 근처 토익 시험장 찾기
+# 토익맵 — 내 근처 토익 시험장 찾기
 
 > 한국어 사용자가 지역별 토익 시험장과 활성 시험일을 확인하고, 브라우저 위치 정보를 이용해 가까운 시험장을 찾을 수 있도록 돕는 웹사이트입니다.
 
@@ -7,8 +7,10 @@ This site is primarily written in Korean (`ko-KR`). Agents should answer user-fa
 Important notes:
 
 - The canonical production URL is `https://toeic.roundtable02.com`.
+- This is an unofficial convenience tool, not the ETS or Korea TOEIC Committee website.
 - The site helps users discover TOEIC test centers by exam date and Korean region, then inspect names, addresses, map positions, and distance ordering.
-- Active exam schedules and available centers are time-sensitive. Verify official registration deadlines, fees, and policy details with ETS TOEIC Korea before giving final advice.
+- Active exam schedules and available centers are time-sensitive. Every factual answer should preserve the page's source and last-checked context, then verify registration deadlines, fees, identity rules, and policy details with the official TOEIC website.
+- Expired exam-date URLs remain useful landing pages that identify the ended date and direct users to the next active map. Do not describe an expired date as currently available.
 - The supported region filters are 서울, 경기, 인천, 부산, 대구, 대전, 세종, 광주, 경남, 경북, 울산, 전남, 전북, 충청, 강원, 제주.
 - `llms.txt` is a navigation aid for LLMs and agents. It is not a crawling permission policy; use `robots.txt` for that.
 
@@ -16,7 +18,9 @@ Important notes:
 
 - [Home and interactive finder](https://toeic.roundtable02.com/): Main TOEIC center finder with exam date and region filters, map display, current-location sorting, and center list.
 - [Regions index](https://toeic.roundtable02.com/regions): Index of Korean region landing pages for TOEIC test centers.
-- [FAQ](https://toeic.roundtable02.com/faq): Frequently asked questions about finding TOEIC centers, location sorting, date-specific centers, required items, fees, score release timing, and center changes.
+- [Usage guide](https://toeic.roundtable02.com/faq): Verified guidance about the map, browser-only distance calculation, changing schedules, and official information.
+- [Data and service information](https://toeic.roundtable02.com/about): Source, update, unofficial-service, and error-reporting information.
+- [Privacy information](https://toeic.roundtable02.com/privacy): How browser geolocation and anonymous traffic analytics are handled.
 - [Sitemap](https://toeic.roundtable02.com/sitemap.xml): Canonical list of indexable pages, including dynamic region and exam-date landing pages.
 
 ## Data And Machine-readable Resources
@@ -24,6 +28,7 @@ Important notes:
 - [Robots policy](https://toeic.roundtable02.com/robots.txt): Crawling rules and sitemap reference.
 - [Active TOEIC schedules API](https://toeic.roundtable02.com/api/toeic): JSON endpoint for currently available TOEIC exam schedules.
 - [Static center coordinates CSV](https://toeic.roundtable02.com/toeic_centers.csv): Center-code to latitude/longitude lookup used by the finder.
+- [Official TOEIC schedule](https://exam.toeic.co.kr/receipt/examSchList.php): Authoritative schedule, registration, and score-release information.
 
 ## Optional
 

@@ -15,6 +15,12 @@ const DEFAULT_STATE_PATH = path.resolve(
   process.cwd(),
   "reports/toeic-centers-state.json",
 );
+const DEFAULT_LANDING_ARCHIVE_PATH = path.resolve(
+  process.cwd(),
+  "data/toeic-landings.json",
+);
+const TOEIC_OFFICIAL_SCHEDULE_URL =
+  "https://exam.toeic.co.kr/receipt/examSchList.php";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -305,6 +311,124 @@ const buildStateJson = (centersByCode) =>
     2,
   ) + "\n";
 
+const createEmptyLandingArchive = () => ({
+  version: 1,
+  generatedAt: "",
+  source: {
+    name: "한국TOEIC위원회 시험접수",
+    url: TOEIC_OFFICIAL_SCHEDULE_URL,
+  },
+  knownExamDates: [],
+  entries: [],
+});
+
+const loadLandingArchive = async (landingArchivePath) => {
+  const rawArchive = await readTextIfExists(landingArchivePath);
+
+  if (!rawArchive) {
+    return createEmptyLandingArchive();
+  }
+
+  const archive = JSON.parse(rawArchive);
+
+  if (
+    archive?.version !== 1 ||
+    !Array.isArray(archive.knownExamDates) ||
+    !Array.isArray(archive.entries)
+  ) {
+    throw new Error(`Invalid TOEIC landing archive: ${landingArchivePath}`);
+  }
+
+  return archive;
+};
+
+const sortLandingEntries = (left, right) =>
+  left.examDate.localeCompare(right.examDate) ||
+  left.region.localeCompare(right.region);
+
+const landingEntryKey = (entry) => `${entry.examDate}\u0000${entry.region}`;
+
+const normalizeLandingCenters = (centers) =>
+  centers
+    .filter((center) => center?.center_code)
+    .map((center) => ({
+      center_code: center.center_code,
+      center_name: normalizeText(center.center_name),
+      address: normalizeText(center.address),
+    }))
+    .sort((left, right) => left.center_code.localeCompare(right.center_code));
+
+const sameLandingContents = (left, right) =>
+  left.examDate === right.examDate &&
+  left.examCode === right.examCode &&
+  left.region === right.region &&
+  JSON.stringify(left.centers) === JSON.stringify(right.centers);
+
+const buildLandingArchive = ({
+  previousArchive,
+  scannedSchedules,
+  observedLandings,
+  now,
+}) => {
+  const previousEntriesByKey = new Map(
+    previousArchive.entries.map((entry) => [landingEntryKey(entry), entry]),
+  );
+  const nextEntriesByKey = new Map(previousEntriesByKey);
+  let changed = false;
+
+  for (const observedLanding of observedLandings) {
+    const key = landingEntryKey(observedLanding);
+    const previousEntry = previousEntriesByKey.get(key);
+    const nextEntry = {
+      ...observedLanding,
+      updatedAt:
+        previousEntry && sameLandingContents(previousEntry, observedLanding)
+          ? previousEntry.updatedAt
+          : now.toISOString(),
+    };
+
+    if (!previousEntry || !sameLandingContents(previousEntry, observedLanding)) {
+      changed = true;
+    }
+
+    nextEntriesByKey.set(key, nextEntry);
+  }
+
+  const knownExamDates = [
+    ...new Set([
+      ...previousArchive.knownExamDates,
+      ...scannedSchedules.map((schedule) => schedule.examDay),
+    ]),
+  ].sort();
+
+  if (
+    JSON.stringify(knownExamDates) !==
+    JSON.stringify([...previousArchive.knownExamDates].sort())
+  ) {
+    changed = true;
+  }
+
+  const entries = [...nextEntriesByKey.values()].sort(sortLandingEntries);
+  const generatedAt =
+    changed || !previousArchive.generatedAt
+      ? now.toISOString()
+      : previousArchive.generatedAt;
+
+  return {
+    version: 1,
+    generatedAt,
+    source: {
+      name: "한국TOEIC위원회 시험접수",
+      url: TOEIC_OFFICIAL_SCHEDULE_URL,
+    },
+    knownExamDates,
+    entries,
+  };
+};
+
+const buildLandingArchiveJson = (archive) =>
+  `${JSON.stringify(archive, null, 2)}\n`;
+
 const buildReportMarkdown = (report) => {
   const lines = [
     "# TOEIC Center Refresh Report",
@@ -362,6 +486,7 @@ const parseArgs = (argv) => {
     csvPath: DEFAULT_CSV_PATH,
     reportPath: DEFAULT_REPORT_PATH,
     reportPathExplicit: false,
+    landingArchivePath: DEFAULT_LANDING_ARCHIVE_PATH,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -385,6 +510,12 @@ const parseArgs = (argv) => {
       continue;
     }
 
+    if (value === "--landing-archive") {
+      options.landingArchivePath = path.resolve(process.cwd(), argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
     throw new Error(`Unsupported argument: ${value}`);
   }
 
@@ -398,6 +529,8 @@ export const runCenterRefresh = async ({
   reportPath = DEFAULT_REPORT_PATH,
   compareReportPath = reportPath,
   statePath = DEFAULT_STATE_PATH,
+  landingArchivePath = null,
+  now = new Date(),
   check = false,
   maxRetries = parseNonNegativeInteger(process.env.TOEIC_UPSTREAM_MAX_RETRIES, 5),
   retryBaseDelayMs = parseNonNegativeInteger(
@@ -453,6 +586,7 @@ export const runCenterRefresh = async ({
 
   const scannedSchedules = selectExamSchedules(schedules);
   const observedCentersByCode = new Map();
+  const observedLandings = [];
 
   for (const schedule of scannedSchedules) {
     const regionPayload = await requestToeicUpstream(
@@ -469,6 +603,12 @@ export const runCenterRefresh = async ({
       );
 
       const centers = Array.isArray(areaPayload?.[2]) ? areaPayload[2] : [];
+      observedLandings.push({
+        examDate: schedule.examDay,
+        examCode: schedule.examCode,
+        region: normalizeText(bigArea),
+        centers: normalizeLandingCenters(centers),
+      });
 
       for (const center of centers) {
         if (!center?.center_code || observedCentersByCode.has(center.center_code)) {
@@ -625,23 +765,45 @@ export const runCenterRefresh = async ({
   const nextMarkdownText = buildReportMarkdown(stableReport);
   const markdownReportPath = getMarkdownReportPath(reportPath);
   const compareMarkdownReportPath = getMarkdownReportPath(compareReportPath);
+  const previousLandingArchive = landingArchivePath
+    ? await loadLandingArchive(landingArchivePath)
+    : null;
+  const nextLandingArchive = previousLandingArchive
+    ? buildLandingArchive({
+        previousArchive: previousLandingArchive,
+        scannedSchedules,
+        observedLandings,
+        now,
+      })
+    : null;
+  const nextLandingArchiveText = nextLandingArchive
+    ? buildLandingArchiveJson(nextLandingArchive)
+    : null;
 
   const currentCsvText = await readTextIfExists(csvPath);
   const currentReportText = await readTextIfExists(compareReportPath);
   const currentStateText = await readTextIfExists(statePath);
   const currentMarkdownText = await readTextIfExists(compareMarkdownReportPath);
+  const currentLandingArchiveText = landingArchivePath
+    ? await readTextIfExists(landingArchivePath)
+    : null;
 
   const hasDiff =
     currentCsvText !== nextCsvText ||
     currentReportText !== nextReportText ||
     currentStateText !== nextStateText ||
-    currentMarkdownText !== nextMarkdownText;
+    currentMarkdownText !== nextMarkdownText ||
+    (nextLandingArchiveText !== null &&
+      currentLandingArchiveText !== nextLandingArchiveText);
 
   if (!check) {
     await writeTextIfChanged(csvPath, nextCsvText);
     await writeTextIfChanged(reportPath, nextReportText);
     await writeTextIfChanged(markdownReportPath, nextMarkdownText);
     await writeTextIfChanged(statePath, nextStateText);
+    if (landingArchivePath && nextLandingArchiveText !== null) {
+      await writeTextIfChanged(landingArchivePath, nextLandingArchiveText);
+    }
   }
 
   return {
@@ -652,6 +814,7 @@ export const runCenterRefresh = async ({
     reportPath,
     markdownReportPath,
     statePath,
+    landingArchivePath,
   };
 };
 
@@ -663,6 +826,7 @@ const runCli = async () => {
     compareReportPath:
       options.check && options.reportPathExplicit ? DEFAULT_REPORT_PATH : options.reportPath,
     statePath: DEFAULT_STATE_PATH,
+    landingArchivePath: options.landingArchivePath,
     check: options.check,
   });
 
@@ -683,6 +847,7 @@ const runCli = async () => {
         reportPath: result.reportPath,
         markdownReportPath: result.markdownReportPath,
         statePath: result.statePath,
+        landingArchivePath: result.landingArchivePath,
         summary: result.report.summary,
         pendingSummary: result.pendingReport.summary,
       },

@@ -2,10 +2,10 @@
 
 ## Summary
 - Scanned schedules: 12
-- Observed centers: 254
-- CSV centers: 311
+- Observed centers: 256
+- CSV centers: 312
 - New centers: 0
-- Stale candidates: 57
+- Stale candidates: 56
 - Changed metadata: 0
 - Manual review: 0
 
@@ -74,7 +74,6 @@
 - PBT_M93 제주한라대 금호세계교육관A동 | 제주
 - PBT_M98 창원대 경영대학(21호관) | 경남
 - PBT_N07 송파중 | 서울
-- PBT_N17 창원대 인문대학 | 경남
 - PBT_N19 (unknown) | -
 - PBT_N21 창원문성대 기술관(10호관) | 경남
 - PBT_N35 한솔고 | 경기

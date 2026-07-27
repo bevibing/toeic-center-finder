@@ -363,7 +363,7 @@
     },
     {
       "centerCode": "PBT_405",
-      "centerName": "동신대(정보전산센터)",
+      "centerName": "동신대 동신행정관",
       "address": "전라남도 나주시 건재로 185",
       "bigArea": "전남"
     },
@@ -1698,6 +1698,12 @@
       "centerName": "동아마이스터고",
       "address": "대전광역시 동구 충정로 97 (자양동, 동아마이스터고등학교)",
       "bigArea": "대전"
+    },
+    {
+      "centerCode": "PBT_N78",
+      "centerName": "동광고",
+      "address": "경기도 성남시 중원구 원터로 84 (성남동, 동광고등학교)",
+      "bigArea": "경기"
     }
   ]
 }

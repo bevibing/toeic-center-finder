@@ -43,6 +43,7 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
   const csvPath = path.join(workspace, "toeic_centers.csv");
   const reportPath = path.join(workspace, "report.json");
   const statePath = path.join(workspace, "state.json");
+  const landingArchivePath = path.join(workspace, "toeic-landings.json");
 
   await writeFile(
     csvPath,
@@ -70,6 +71,33 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
             centerName: "사라진 학교",
             address: "서울특별시 강남구 사라진로 2",
             bigArea: "서울",
+          },
+        ],
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+
+  await writeFile(
+    landingArchivePath,
+    JSON.stringify(
+      {
+        version: 1,
+        generatedAt: "2026-03-16T00:00:00.000Z",
+        source: {
+          name: "한국TOEIC위원회 시험접수",
+          url: "https://exam.toeic.co.kr/receipt/examSchList.php",
+        },
+        knownExamDates: ["2026-03-15"],
+        entries: [
+          {
+            examDate: "2026-03-15",
+            examCode: "EXPIRED_EXAM",
+            region: "서울",
+            updatedAt: "2026-03-01T00:00:00.000Z",
+            centers: [],
           },
         ],
       },
@@ -182,6 +210,8 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
     csvPath,
     reportPath,
     statePath,
+    landingArchivePath,
+    now: new Date("2026-04-01T00:00:00.000Z"),
     check: false,
     requestDelayMs: 0,
   });
@@ -208,11 +238,37 @@ test("runCenterRefresh detects new centers, stale candidates, metadata changes, 
   const nextState = JSON.parse(await readFile(statePath, "utf8"));
   assert.equal(nextState.centers.some((center) => center.centerCode === "NEW_001"), true);
 
+  const nextLandingArchive = JSON.parse(await readFile(landingArchivePath, "utf8"));
+  assert.deepEqual(nextLandingArchive.knownExamDates, [
+    "2026-03-15",
+    "2026-04-26",
+  ]);
+  assert.equal(
+    nextLandingArchive.entries.some(
+      (entry) =>
+        entry.examDate === "2026-03-15" &&
+        entry.region === "서울" &&
+        entry.examCode === "EXPIRED_EXAM",
+    ),
+    true,
+  );
+  assert.equal(
+    nextLandingArchive.entries.some(
+      (entry) =>
+        entry.examDate === "2026-04-26" &&
+        entry.region === "서울" &&
+        entry.centers.some((center) => center.center_code === "NEW_001"),
+    ),
+    true,
+  );
+
   const checkResult = await runCenterRefresh({
     fetchImpl,
     csvPath,
     reportPath,
     statePath,
+    landingArchivePath,
+    now: new Date("2026-04-01T00:00:00.000Z"),
     check: true,
     requestDelayMs: 0,
   });

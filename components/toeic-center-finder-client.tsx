@@ -81,6 +81,8 @@ const MapContainer = styled.section`
   height: 100dvh;
 
   @media (max-width: 960px) {
+    order: -1;
+    flex: 0 0 45dvh;
     height: 45dvh;
   }
 `;

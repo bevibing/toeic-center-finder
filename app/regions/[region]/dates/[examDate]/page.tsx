@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DataSourceNote from "@/components/data-source-note";
 import JsonLd from "@/components/json-ld";
 import SeoBreadcrumbs from "@/components/seo-breadcrumbs";
 import ToeicCenterFinderClient from "@/components/toeic-center-finder-client";
@@ -9,9 +10,9 @@ import { getRegionIntro } from "@/lib/region-content";
 import { decodeRouteSegment } from "@/lib/route-utils";
 import {
   buildBreadcrumbStructuredData,
-  buildCollectionPageStructuredData,
-  buildFaqStructuredData,
+  buildCenterCollectionStructuredData,
   buildPageMetadata,
+  buildWebPageStructuredData,
 } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -36,6 +37,15 @@ export async function generateMetadata({
       title: "토익 시험장 찾기",
       description: "토익 시험장 찾기 페이지입니다.",
       path: "/regions",
+    });
+  }
+
+  if (landingData.status === "archived") {
+    return buildPageMetadata({
+      title: `${examDate} ${region} 토익 시험장 (종료)`,
+      description: `${examDate} ${region} 토익 시험은 종료되었습니다. 다음 활성 시험일의 ${region} 시험장 지도를 바로 확인할 수 있습니다.`,
+      path: `/regions/${region}/dates/${examDate}`,
+      keywords: [`${region} 토익 시험장`, `${examDate} 토익 시험장`],
     });
   }
 
@@ -68,6 +78,14 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
   ];
   const examDateLabel = getExamDateLabel(examDate);
   const intro = getRegionIntro(region);
+  const mapExamDate =
+    landingData.status === "active" ? examDate : (relatedDates[0]?.examDate ?? "");
+  const pagePath = `/regions/${region}/dates/${examDate}`;
+  const pageName = `${examDate} ${region} 토익 시험장`;
+  const pageDescription =
+    landingData.status === "active"
+      ? `${examDateLabel}에 응시 가능한 ${region} 지역 토익 시험장 목록입니다.`
+      : `${examDateLabel} 시험은 종료되었습니다. 다음 활성 시험일의 ${region} 시험장 지도를 안내합니다.`;
 
   return (
     <main className="page-shell">
@@ -81,69 +99,105 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
         ])}
       />
       <JsonLd
-        data={buildCollectionPageStructuredData({
-          name: `${examDate} ${region} 토익 시험장`,
-          description: `${examDateLabel}에 응시 가능한 ${region} 지역 토익 시험장 목록입니다.`,
-          path: `/regions/${region}/dates/${examDate}`,
-          itemNames: landingData.centers.map((center) => center.center_name),
+        data={buildWebPageStructuredData({
+          name: pageName,
+          description: pageDescription,
+          path: pagePath,
+          dateModified: landingData.updatedAt,
+          sourceUrl: landingData.sourceUrl,
         })}
       />
-      <JsonLd
-        data={buildFaqStructuredData([
-          {
-            question: `${region}에서 ${examDateLabel} 토익 시험장은 어디서 보나요?`,
-            answer: `이 페이지에서 ${region} 지역 시험장 이름과 주소를 먼저 확인한 뒤, 아래 검색 도구로 이동하면 같은 시험일과 지역이 자동으로 선택된 상태에서 지도와 거리 기준 정렬까지 이어서 볼 수 있습니다.`,
-          },
-        ])}
-      />
+      {landingData.centers.length > 0 ? (
+        <JsonLd
+          data={buildCenterCollectionStructuredData({
+            name: pageName,
+            description: pageDescription,
+            path: pagePath,
+            centers: landingData.centers,
+          })}
+        />
+      ) : null}
 
-      <section className="page-hero">
-        <p className="page-kicker">{region} · {examDateLabel}</p>
+      <section className="page-hero compact">
+        <p className="page-kicker">
+          {landingData.status === "archived" ? "종료된 시험일" : `${region} · ${examDateLabel}`}
+        </p>
         <h1>{examDate} {region} 토익 시험장</h1>
         <p className="page-lead">
-          {examDateLabel} 기준으로 확인 가능한 {region} 토익 시험장 페이지입니다.
-          대표 시험장명과 주소를 먼저 확인한 뒤, 아래 검색 도구에서 현재 위치
-          기준 가까운 시험장을 다시 정렬해 볼 수 있습니다.
+          {landingData.status === "active"
+            ? `${examDateLabel}과 ${region} 지역을 미리 선택했습니다. 아래 지도에서 시험장을 바로 확인하고 현재 위치 기준으로 정렬해 보세요.`
+            : `${examDateLabel} 시험은 종료되었습니다. 아래 지도에는 가장 가까운 다음 활성 시험일과 ${region} 지역을 선택해 두었습니다.`}
         </p>
         <div className="page-meta">
           <span>시험장 {landingData.centers.length}곳</span>
           <span>{region} 지역</span>
           <span>시험일 {examDate}</span>
         </div>
+        <DataSourceNote
+          updatedAt={landingData.updatedAt}
+          dataSource={landingData.dataSource}
+          sourceUrl={landingData.sourceUrl}
+        />
       </section>
 
-      <section className="page-answer-box">
-        <h2>{region}에서 {examDateLabel} 토익 시험장은 어디서 보나요?</h2>
-        <p className="page-answer">
-          이 페이지에서 {region} 지역 시험장 이름과 주소를 먼저 확인한 뒤, 아래
-          검색 도구로 이동하면 같은 시험일과 지역이 자동으로 선택된 상태에서
-          지도와 거리 기준 정렬까지 이어서 볼 수 있습니다. {intro}
-        </p>
+      <section
+        className="finder-section priority"
+        data-testid="finder-priority"
+        id="finder-tool"
+      >
+        <div className="page-section-header finder-priority-header">
+          <h2>
+            {landingData.status === "active"
+              ? `${examDate} ${region} 시험장 지도`
+              : `${region} 다음 시험장 지도`}
+          </h2>
+          <p className="page-copy">
+            현재 위치를 허용하면 시험장 목록을 직선거리 기준으로 정렬합니다.
+          </p>
+        </div>
+        <div className="finder-frame">
+          <ToeicCenterFinderClient
+            initialExamDate={mapExamDate}
+            initialLocationFilter={region}
+          />
+        </div>
       </section>
 
       <section className="page-section">
         <div className="page-section-header">
-          <h2>{examDate} {region} 시험장 요약</h2>
+          <h2>{examDate} {region} 시험장 정보</h2>
           <p className="page-copy">
-            대표 시험장명과 주소를 먼저 확인할 수 있습니다.
+            {landingData.centers.length > 0
+              ? `공식 조회에서 확인한 시험장명과 주소입니다. ${intro}`
+              : "보존된 시험장 목록은 없지만 종료 상태와 다음 시험일 지도는 계속 제공합니다."}
           </p>
         </div>
-        <table className="page-table">
-          <thead>
-            <tr>
-              <th>시험장명</th>
-              <th>주소</th>
-            </tr>
-          </thead>
-          <tbody>
-            {landingData.centers.map((center) => (
-              <tr key={center.center_code}>
-                <td>{center.center_name}</td>
-                <td>{center.address}</td>
+        {landingData.centers.length > 0 ? (
+          <table className="page-table">
+            <thead>
+              <tr>
+                <th>시험장명</th>
+                <th>주소</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {landingData.centers.map((center) => (
+                <tr
+                  id={`center-${encodeURIComponent(center.center_code)}`}
+                  key={center.center_code}
+                >
+                  <td>{center.center_name}</td>
+                  <td>{center.address}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className="page-copy">
+            해당 시험일은 종료되었습니다. 위 지도에서 다음 활성 시험일을
+            확인하세요.
+          </p>
+        )}
       </section>
 
       {relatedDates.length > 0 ? (
@@ -168,14 +222,6 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
         </section>
       ) : null}
 
-      <section className="finder-section" id="finder-tool">
-        <div className="finder-frame">
-          <ToeicCenterFinderClient
-            initialExamDate={examDate}
-            initialLocationFilter={region}
-          />
-        </div>
-      </section>
     </main>
   );
 }

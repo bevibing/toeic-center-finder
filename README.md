@@ -106,6 +106,7 @@ npm run centers:refresh
   - 저장소 파일은 수정하지 않고, 변경이 있으면 종료 코드 `1` 을 반환합니다.
 - `centers:refresh`
   - 공식 TOEIC upstream 을 기준으로 `public/toeic_centers.csv` 를 갱신합니다.
+  - 검색 랜딩 페이지의 장애 대비 스냅샷인 `data/toeic-landings.json` 을 누적 갱신합니다.
   - 리포트와 상태 파일도 함께 갱신합니다.
 
 CLI 옵션:
@@ -114,12 +115,14 @@ CLI 옵션:
 node scripts/update-toeic-centers.mjs --check
 node scripts/update-toeic-centers.mjs --csv public/toeic_centers.csv
 node scripts/update-toeic-centers.mjs --report reports/toeic-centers-report.json
+node scripts/update-toeic-centers.mjs --landing-archive data/toeic-landings.json
 ```
 
 - `--check`: 쓰기 없이 비교만 수행
 - `--csv <path>`: 대상 CSV 경로
 - `--report <path>`: JSON 리포트 경로
   - 같은 basename 으로 Markdown 리포트도 함께 생성됩니다.
+- `--landing-archive <path>`: 날짜·지역별 공식 시험장 스냅샷 경로
 
 리포트 파일:
 

@@ -3,6 +3,7 @@ import {
   TOEIC_CENTERS_CACHE_TTL_SECONDS,
   TOEIC_CENTERS_STALE_TTL_SECONDS,
 } from "@/lib/constants";
+import { findArchivedCentersByExamCode } from "@/lib/toeic-archive";
 import { postToToeicUpstream, ToeicProxyError } from "@/lib/toeic-proxy";
 
 export const runtime = "nodejs";
@@ -13,6 +14,24 @@ const CACHE_CONTROL = [
   `s-maxage=${TOEIC_CENTERS_CACHE_TTL_SECONDS}`,
   `stale-while-revalidate=${TOEIC_CENTERS_STALE_TTL_SECONDS}`,
 ].join(", ");
+
+const getArchivedCenterResponse = async (
+  examCode: string,
+  bigArea: string,
+) => {
+  const archivedCenters = await findArchivedCentersByExamCode(examCode, bigArea);
+
+  if (!archivedCenters || archivedCenters.length === 0) {
+    return null;
+  }
+
+  return NextResponse.json([null, null, archivedCenters], {
+    headers: {
+      "Cache-Control": CACHE_CONTROL,
+      "X-TOEIC-Data-Source": "archive",
+    },
+  });
+};
 
 export async function GET(request: NextRequest) {
   const examCode = request.nextUrl.searchParams.get("examCode");
@@ -41,7 +60,18 @@ export async function GET(request: NextRequest) {
       cacheTtlSeconds: TOEIC_CENTERS_CACHE_TTL_SECONDS,
     });
 
-    if (!data) {
+    const hasCenters =
+      Array.isArray(data) &&
+      Array.isArray(data[2]) &&
+      data[2].length > 0;
+
+    if (!hasCenters) {
+      const archivedResponse = await getArchivedCenterResponse(examCode, bigArea);
+
+      if (archivedResponse) {
+        return archivedResponse;
+      }
+
       return NextResponse.json(
         { error: "No data received from TOEIC server" },
         {
@@ -59,6 +89,12 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
+    const archivedResponse = await getArchivedCenterResponse(examCode, bigArea);
+
+    if (archivedResponse) {
+      return archivedResponse;
+    }
+
     const proxyError =
       error instanceof ToeicProxyError
         ? error

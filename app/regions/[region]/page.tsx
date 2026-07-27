@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DataSourceNote from "@/components/data-source-note";
 import JsonLd from "@/components/json-ld";
 import SeoBreadcrumbs from "@/components/seo-breadcrumbs";
+import ToeicCenterFinderClient from "@/components/toeic-center-finder-client";
 import { LOCATION_FILTERS } from "@/lib/constants";
 import { getRegionPageSummaries } from "@/lib/landing-data";
 import { getRegionIntro } from "@/lib/region-content";
 import { decodeRouteSegment } from "@/lib/route-utils";
+import { getToeicLandingArchive } from "@/lib/toeic-archive";
 import {
   buildBreadcrumbStructuredData,
   buildCollectionPageStructuredData,
-  buildFaqStructuredData,
   buildPageMetadata,
 } from "@/lib/site";
 
@@ -60,6 +62,7 @@ export default async function RegionPage({ params }: RegionPageProps) {
   }
 
   const summaries = await getRegionPageSummaries(region);
+  const archive = await getToeicLandingArchive();
   const breadcrumbs = [
     { label: "홈", href: "/" },
     { label: "지역별 토익 시험장", href: "/regions" },
@@ -85,45 +88,39 @@ export default async function RegionPage({ params }: RegionPageProps) {
           itemNames: summaries.map((summary) => `${summary.examDate} ${region} 토익 시험장`),
         })}
       />
-      <JsonLd
-        data={buildFaqStructuredData([
-          {
-            question: `${region} 토익 시험장은 어디서 확인하나요?`,
-            answer: `이 페이지에서 활성 시험일별 링크를 선택하면 ${region} 지역 토익 시험장 요약 페이지로 바로 이동할 수 있습니다. 각 시험일 페이지에는 대표 시험장명, 주소, 시험장 수가 함께 제공됩니다.`,
-          },
-        ])}
-      />
-
-      <section className="page-hero">
-        <p className="page-kicker">{region} 지역 랜딩</p>
+      <section className="page-hero compact">
+        <p className="page-kicker">{region} 시험장 지도</p>
         <h1>{region} 토익 시험장 찾기</h1>
-        <p className="page-lead">{intro}</p>
-        <div className="page-actions">
-          {summaries[0] ? (
-            <Link
-              className="page-button"
-              href={`/regions/${region}/dates/${summaries[0].examDate}`}
-            >
-              가장 가까운 시험일 보기
-            </Link>
-          ) : (
-            <Link className="page-button" href="#finder-tool">
-              검색 도구로 바로 이동
-            </Link>
-          )}
-          <Link className="page-button secondary" href="/regions">
-            다른 지역 보기
-          </Link>
-        </div>
+        <p className="page-lead">
+          {summaries[0]
+            ? `${summaries[0].examDate} 시험일과 ${region} 지역을 미리 선택했습니다. 지도에서 시험장을 바로 확인하거나 날짜를 바꿔 보세요.`
+            : `${intro} 현재 공개된 일정이 없으면 다른 지역이나 시험일을 선택할 수 있습니다.`}
+        </p>
+        <DataSourceNote
+          updatedAt={summaries[0]?.updatedAt ?? archive.generatedAt}
+          dataSource={summaries[0]?.dataSource ?? "archive"}
+          sourceUrl={summaries[0]?.sourceUrl ?? archive.source.url}
+        />
       </section>
 
-      <section className="page-answer-box">
-        <h2>{region} 토익 시험장은 어디서 확인하나요?</h2>
-        <p className="page-answer">
-          이 페이지에서 활성 시험일별 링크를 선택하면 {region} 지역 토익 시험장
-          요약 페이지로 바로 이동할 수 있습니다. 각 시험일 페이지에는 대표
-          시험장명, 주소, 시험장 수, 검색 도구 연결 링크가 함께 제공됩니다.
-        </p>
+      <section
+        className="finder-section priority"
+        data-testid="finder-priority"
+        id="finder-tool"
+      >
+        <div className="page-section-header finder-priority-header">
+          <h2>{region}에서 가까운 토익 시험장 지도</h2>
+          <p className="page-copy">
+            현재 위치를 허용하면 선택한 시험장의 직선거리가 가까운 순서로
+            정렬됩니다.
+          </p>
+        </div>
+        <div className="finder-frame">
+          <ToeicCenterFinderClient
+            initialExamDate={summaries[0]?.examDate}
+            initialLocationFilter={region}
+          />
+        </div>
       </section>
 
       <section className="page-section">
@@ -171,21 +168,6 @@ export default async function RegionPage({ params }: RegionPageProps) {
             흐름을 우선 제공합니다.
           </p>
         )}
-      </section>
-
-      <section className="page-section finder-section" id="finder-tool">
-        <div className="page-section-header">
-          <h2>{region} 시험장 검색 도구</h2>
-          <p className="page-copy">
-            실시간 필터링이 필요하면 아래 검색 도구에서 시험일과 지역을 선택해
-            확인하세요.
-          </p>
-        </div>
-        <div className="page-actions">
-          <Link className="page-button" href={`/#finder-tool`}>
-            홈 검색 도구로 이동
-          </Link>
-        </div>
       </section>
     </main>
   );

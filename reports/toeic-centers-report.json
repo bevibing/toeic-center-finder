@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 12,
-    "observedCenterCount": 254,
-    "csvCenterCount": 311,
+    "observedCenterCount": 256,
+    "csvCenterCount": 312,
     "newCenterCount": 0,
-    "staleCenterCount": 57,
+    "staleCenterCount": 56,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -342,12 +342,6 @@
       "centerName": "송파중",
       "address": "서울특별시 송파구 동남로 203 (가락동, 송파중학교)",
       "bigArea": "서울"
-    },
-    {
-      "centerCode": "PBT_N17",
-      "centerName": "창원대 인문대학",
-      "address": "경상남도 창원시 의창구 창원대학로 20 (퇴촌동, 창원대학교)",
-      "bigArea": "경남"
     },
     {
       "centerCode": "PBT_N19",

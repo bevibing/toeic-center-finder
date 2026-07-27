@@ -24,6 +24,9 @@ const nextServer = spawn(
       TOEIC_UPSTREAM_BASE_URL: upstreamUrl,
       TOEIC_TODAY_OVERRIDE: process.env.TOEIC_TODAY_OVERRIDE ?? "2026-04-01",
       TOEIC_PROXY_TIMEOUT_MS: process.env.TOEIC_PROXY_TIMEOUT_MS ?? "1500",
+      TOEIC_LANDING_ARCHIVE_PATH:
+        process.env.TOEIC_LANDING_ARCHIVE_PATH ??
+        "data/toeic-landings.e2e.json",
       NEXT_PUBLIC_TOEIC_CENTER_COORDINATES_PATH:
         process.env.NEXT_PUBLIC_TOEIC_CENTER_COORDINATES_PATH ??
         "/toeic_centers.e2e.csv",
