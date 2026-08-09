@@ -1,16 +1,15 @@
 # TOEIC Center Refresh Report
 
 ## Summary
-- Scanned schedules: 12
-- Observed centers: 256
-- CSV centers: 312
+- Scanned schedules: 11
+- Observed centers: 250
+- CSV centers: 313
 - New centers: 0
-- Stale candidates: 56
+- Stale candidates: 63
 - Changed metadata: 0
 - Manual review: 0
 
 ## Scanned Schedules
-- 2026-07-26 (TOE_574)
 - 2026-08-09 (TOE_575)
 - 2026-08-23 (TOE_576)
 - 2026-08-30 (TOE_577)
@@ -33,20 +32,25 @@
 - DUMMY_SINGLE_001 (unknown) | -
 - PBT_042 (unknown) | -
 - PBT_056 (unknown) | -
+- PBT_058 광양중 | 서울
 - PBT_079 선린인터넷고 | 서울
 - PBT_095 (unknown) | -
 - PBT_147 연제중 | 부산
 - PBT_179 (unknown) | -
 - PBT_293 서울전일중 | 서울
+- PBT_326 남선중 | 대전
 - PBT_343 만년중 | 대전
 - PBT_360 (unknown) | -
-- PBT_421 광주영천중 | 광주
+- PBT_529 거창대성고 | 경남
+- PBT_600 수원동성중 | 경기
 - PBT_607 (unknown) | -
 - PBT_647 (unknown) | -
 - PBT_655 (unknown) | -
 - PBT_662 (unknown) | -
 - PBT_711 부평공고 | 인천
 - PBT_761 (unknown) | -
+- PBT_764 동일공고 | 경기
+- PBT_785 수유중 | 서울
 - PBT_944 언남고 | 서울
 - PBT_948 (unknown) | -
 - PBT_957 (unknown) | -
@@ -59,10 +63,11 @@
 - PBT_E16 인제대 신어관 | 경남
 - PBT_E28 대가대 취창업관(B1) | 경북
 - PBT_E46 천안상고 | 충청
-- PBT_H02 인하공전 3호관 | 인천
+- PBT_E56 세명대 학술관 | 충청
 - PBT_H35 (unknown) | -
 - PBT_H40 (unknown) | -
 - PBT_H43 수원정보과학고 | 경기
+- PBT_H74 광주대 호심관 | 광주
 - PBT_H90 (unknown) | -
 - PBT_M12 (unknown) | -
 - PBT_M15 (unknown) | -
@@ -76,12 +81,13 @@
 - PBT_N07 송파중 | 서울
 - PBT_N19 (unknown) | -
 - PBT_N21 창원문성대 기술관(10호관) | 경남
+- PBT_N33 공주영명고 | 충청
 - PBT_N35 한솔고 | 경기
+- PBT_N40 신안산대 목양관 | 경기
 - PBT_N50 인하공전 6호관 | 인천
 - PBT_N60 봉화중 | 서울
 - PBT_N61 염경중 | 서울
 - PBT_N63 한국방송통신대 성남시학습관 | 경기
-- PBT_N64 목암중 | 경기
 - PBT_N71 인천바이오과학고 | 인천
 
 ## Changed Metadata
