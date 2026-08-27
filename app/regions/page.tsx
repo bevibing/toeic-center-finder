@@ -39,6 +39,7 @@ export default async function RegionsPage() {
             "전국 주요 지역의 토익 시험장 랜딩 페이지 목록입니다.",
           path: "/regions",
           itemNames: LOCATION_FILTERS.map((region) => `${region} 토익 시험장`),
+          itemPaths: LOCATION_FILTERS.map((region) => `/regions/${region}`),
         })}
       />
 

@@ -4,7 +4,12 @@ import DataSourceNote from "@/components/data-source-note";
 import JsonLd from "@/components/json-ld";
 import SeoBreadcrumbs from "@/components/seo-breadcrumbs";
 import { getToeicLandingArchive, TOEIC_OFFICIAL_SCHEDULE_URL } from "@/lib/toeic-archive";
-import { buildBreadcrumbStructuredData, buildPageMetadata, buildWebPageStructuredData } from "@/lib/site";
+import {
+  buildBreadcrumbStructuredData,
+  buildPageMetadata,
+  buildWebPageStructuredData,
+  SITE_REPOSITORY_URL,
+} from "@/lib/site";
 
 const PAGE_PATH = "/about";
 
@@ -77,14 +82,69 @@ export default async function AboutPage() {
       </section>
 
       <section className="page-section">
+        <h2>데이터는 얼마나 자주 갱신되나요?</h2>
+        <p className="page-copy">
+          시험 일정과 시험장 목록은 공식 조회 결과를 기준으로 주기적으로
+          갱신하며, 각 페이지 상단에 마지막으로 확인한 날짜를 함께 표시합니다.
+          공식 시스템에 새 시험일이 열리면 해당 시험일의 지역별 페이지가 새로
+          만들어지고, 시험이 끝난 날짜는 종료 표시와 함께 다음 시험일로 안내가
+          바뀝니다.
+        </p>
+        <p className="page-copy">
+          다만 토익맵의 데이터는 실시간이 아닙니다. 공식 시스템에서 시험장이
+          추가되거나 취소된 직후에는 토익맵 화면과 실제 정보가 잠시 다를 수
+          있습니다. 화면에 표시된 확인일이 오래되었다면 공식 사이트를 먼저
+          확인하시는 편이 안전합니다.
+        </p>
+      </section>
+
+      <section className="page-section">
+        <h2>토익맵이 하지 않는 일</h2>
+        <p className="page-copy">
+          토익맵은 시험장을 미리 살펴보는 지도일 뿐이며, 아래 기능은 제공하지
+          않습니다. 모두 공식 시스템에서만 가능합니다.
+        </p>
+        <ul className="page-list">
+          <li>시험 접수와 결제, 접수 변경 및 취소</li>
+          <li>시험장별 잔여 좌석이나 마감 여부 조회</li>
+          <li>수험표 발급과 성적 확인, 성적표 재발급</li>
+          <li>시험 규정, 응시료, 준비물 안내</li>
+        </ul>
+        <p className="page-note">
+          시험장 좌표가 확인되지 않은 경우에는 지도에 표시하지 않고 목록에만
+          노출합니다. 잘못된 위치를 표시하는 것보다 표시하지 않는 편이 안전하다고
+          판단했기 때문입니다.
+        </p>
+      </section>
+
+      <section className="page-section">
+        <h2>누가 만들고 운영하나요?</h2>
+        <p className="page-copy">
+          토익맵은 개인이 만들어 운영하는 사이드 프로젝트입니다. 별도의 법인이나
+          기관이 아니며, 광고나 유료 상품 없이 공개된 공식 정보를 찾기 쉽게
+          정리하는 것만을 목적으로 합니다. 소스 코드는 GitHub에 공개되어 있어
+          데이터를 어떻게 수집하고 가공하는지 직접 확인할 수 있습니다.
+        </p>
+      </section>
+
+      <section className="page-section">
         <h2>오류 제보와 문의</h2>
         <p className="page-copy">
           시험장명·주소·좌표가 실제 정보와 다르면 GitHub 이슈로 알려주세요.
-          공식 사이트의 최신 정보와 대조해 수정합니다.
+          공식 사이트의 최신 정보와 대조해 수정합니다. 어떤 시험일의 어느
+          시험장인지 함께 적어주시면 확인이 빠릅니다.
         </p>
+        <ul className="page-list">
+          <li>
+            소스 코드:{" "}
+            <Link href={SITE_REPOSITORY_URL} rel="external">
+              {SITE_REPOSITORY_URL}
+            </Link>
+          </li>
+        </ul>
         <Link
           className="page-button"
-          href="https://github.com/bevibing/toeic-center-finder/issues"
+          href={`${SITE_REPOSITORY_URL}/issues`}
           rel="external"
         >
           오류 제보하기

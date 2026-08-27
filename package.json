@@ -13,7 +13,9 @@
     "dev:e2e": "node scripts/dev-with-mock.mjs",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:live": "PLAYWRIGHT_LIVE_SMOKE=1 playwright test tests/live.smoke.spec.ts"
+    "test:e2e:live": "PLAYWRIGHT_LIVE_SMOKE=1 playwright test tests/live.smoke.spec.ts",
+    "indexnow:submit": "node scripts/submit-indexnow.mjs",
+    "indexnow:check": "node scripts/submit-indexnow.mjs --dry-run"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

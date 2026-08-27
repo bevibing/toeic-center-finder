@@ -6,8 +6,9 @@ import JsonLd from "@/components/json-ld";
 import SeoBreadcrumbs from "@/components/seo-breadcrumbs";
 import ToeicCenterFinderClient from "@/components/toeic-center-finder-client";
 import { LOCATION_FILTERS } from "@/lib/constants";
-import { getRegionPageSummaries } from "@/lib/landing-data";
+import { getAvailableRegionDateLanding, getRegionPageSummaries } from "@/lib/landing-data";
 import { getRegionIntro } from "@/lib/region-content";
+import { buildRegionInsights, describeRegionCoverage } from "@/lib/region-insights";
 import { decodeRouteSegment } from "@/lib/route-utils";
 import { getToeicLandingArchive } from "@/lib/toeic-archive";
 import {
@@ -63,6 +64,11 @@ export default async function RegionPage({ params }: RegionPageProps) {
 
   const summaries = await getRegionPageSummaries(region);
   const archive = await getToeicLandingArchive();
+  const nearestLanding = summaries[0]
+    ? await getAvailableRegionDateLanding(region, summaries[0].examDate)
+    : null;
+  const insights = nearestLanding ? buildRegionInsights(nearestLanding.centers) : null;
+  const coverage = insights ? describeRegionCoverage(region, insights) : null;
   const breadcrumbs = [
     { label: "홈", href: "/" },
     { label: "지역별 토익 시험장", href: "/regions" },
@@ -86,6 +92,9 @@ export default async function RegionPage({ params }: RegionPageProps) {
           description: intro,
           path: `/regions/${region}`,
           itemNames: summaries.map((summary) => `${summary.examDate} ${region} 토익 시험장`),
+          itemPaths: summaries.map(
+            (summary) => `/regions/${region}/dates/${summary.examDate}`,
+          ),
         })}
       />
       <section className="page-hero compact">
@@ -93,9 +102,10 @@ export default async function RegionPage({ params }: RegionPageProps) {
         <h1>{region} 토익 시험장 찾기</h1>
         <p className="page-lead">
           {summaries[0]
-            ? `${summaries[0].examDate} 시험일과 ${region} 지역을 미리 선택했습니다. 지도에서 시험장을 바로 확인하거나 날짜를 바꿔 보세요.`
-            : `${intro} 현재 공개된 일정이 없으면 다른 지역이나 시험일을 선택할 수 있습니다.`}
+            ? `${region} 지역에서 응시 가능한 토익 시험일은 현재 ${summaries.length}개이며, 가장 가까운 시험일은 ${summaries[0].examDate}로 시험장 ${summaries[0].centerCount}곳이 공개되어 있습니다.`
+            : `현재 ${region} 지역에 공개된 토익 시험일이 없습니다. 다른 지역이나 시험일을 선택해 확인할 수 있습니다.`}
         </p>
+        <p className="page-copy">{intro}</p>
         <DataSourceNote
           updatedAt={summaries[0]?.updatedAt ?? archive.generatedAt}
           dataSource={summaries[0]?.dataSource ?? "archive"}
@@ -122,6 +132,67 @@ export default async function RegionPage({ params }: RegionPageProps) {
           />
         </div>
       </section>
+
+      {coverage && insights ? (
+        <section className="page-section">
+          <div className="page-section-header">
+            <h2>{region} 토익 시험장은 어디에 있나요?</h2>
+            <p className="page-copy">{coverage}</p>
+          </div>
+          {insights.districts.length > 1 ? (
+            <table className="page-table">
+              <thead>
+                <tr>
+                  <th>시군구</th>
+                  <th>시험장 수</th>
+                </tr>
+              </thead>
+              <tbody>
+                {insights.districts.map((district) => (
+                  <tr key={district.name}>
+                    <td>{district.name}</td>
+                    <td>{district.centerCount}곳</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : null}
+          <p className="page-note">
+            {summaries[0]?.examDate} 시험일 기준이며, 시험일마다 운영되는 고사장은
+            달라질 수 있습니다.
+          </p>
+        </section>
+      ) : null}
+
+      {nearestLanding && nearestLanding.centers.length > 0 ? (
+        <section className="page-section">
+          <div className="page-section-header">
+            <h2>
+              {nearestLanding.examDate} {region} 토익 시험장 전체 목록
+            </h2>
+            <p className="page-copy">
+              가장 가까운 시험일에 공개된 {region} 지역 시험장 {nearestLanding.centers.length}
+              곳의 이름과 대표 주소입니다. 다른 시험일은 아래 표에서 선택하세요.
+            </p>
+          </div>
+          <table className="page-table">
+            <thead>
+              <tr>
+                <th>시험장명</th>
+                <th>주소</th>
+              </tr>
+            </thead>
+            <tbody>
+              {nearestLanding.centers.map((center) => (
+                <tr key={center.center_code}>
+                  <td>{center.center_name}</td>
+                  <td>{center.address}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ) : null}
 
       <section className="page-section">
         <div className="page-section-header">

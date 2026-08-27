@@ -1,0 +1,33 @@
+name: Submit IndexNow
+
+# Notifies Bing / Naver / Yandex after the exam data or landing pages change.
+# Google does not participate in IndexNow and keeps using sitemap.xml.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/toeic-landings.json"
+      - "app/**"
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Give the Vercel production deployment time to serve the new sitemap
+      # before we ask the search engines to read it.
+      - name: Wait for deployment
+        run: sleep 120
+
+      - name: Submit sitemap URLs to IndexNow
+        run: npm run indexnow:submit
