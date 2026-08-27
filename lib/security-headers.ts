@@ -12,7 +12,7 @@ const OSM_TILE_ORIGIN = "https://*.tile.openstreetmap.org";
  * switches the header name and enables the enforce-only directives together, so
  * neither can be forgotten.
  */
-const ENFORCE_CONTENT_SECURITY_POLICY = false;
+const ENFORCE_CONTENT_SECURITY_POLICY = true;
 
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
