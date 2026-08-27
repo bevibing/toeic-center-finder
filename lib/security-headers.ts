@@ -7,6 +7,13 @@ const OSM_TILE_ORIGIN = "https://*.tile.openstreetmap.org";
  * inline bootstrap script (plus `application/ld+json` blocks) and
  * styled-components injects inline `<style>` tags at hydration.
  */
+/**
+ * Flip to `true` to enforce the policy once report-only traffic is clean. This
+ * switches the header name and enables the enforce-only directives together, so
+ * neither can be forgotten.
+ */
+const ENFORCE_CONTENT_SECURITY_POLICY = false;
+
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -18,16 +25,15 @@ const CONTENT_SECURITY_POLICY = [
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "upgrade-insecure-requests",
+  // Browsers ignore upgrade-insecure-requests in a report-only policy and log a
+  // console warning for it, which would bury the violation reports this mode
+  // exists to surface. HSTS already forces HTTPS in the meantime.
+  ...(ENFORCE_CONTENT_SECURITY_POLICY ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
 
-/**
- * Report-Only until the policy has been observed against real traffic. Swap the
- * key to `Content-Security-Policy` to enforce once the browser console and any
- * report collector are clean.
- */
-export const CONTENT_SECURITY_POLICY_HEADER_NAME =
-  "Content-Security-Policy-Report-Only";
+export const CONTENT_SECURITY_POLICY_HEADER_NAME = ENFORCE_CONTENT_SECURITY_POLICY
+  ? "Content-Security-Policy"
+  : "Content-Security-Policy-Report-Only";
 
 export const SECURITY_HEADERS: ReadonlyArray<{ key: string; value: string }> = [
   { key: "X-Content-Type-Options", value: "nosniff" },
