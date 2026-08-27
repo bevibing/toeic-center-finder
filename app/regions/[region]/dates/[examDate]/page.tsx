@@ -7,6 +7,7 @@ import SeoBreadcrumbs from "@/components/seo-breadcrumbs";
 import ToeicCenterFinderClient from "@/components/toeic-center-finder-client";
 import { getAvailableRegionDateLanding, getExamDateLabel, getRegionPageSummaries } from "@/lib/landing-data";
 import { getRegionIntro } from "@/lib/region-content";
+import { buildRegionInsights, describeRegionCoverage } from "@/lib/region-insights";
 import { decodeRouteSegment } from "@/lib/route-utils";
 import {
   buildBreadcrumbStructuredData,
@@ -46,6 +47,9 @@ export async function generateMetadata({
       description: `${examDate} ${region} 토익 시험은 종료되었습니다. 다음 활성 시험일의 ${region} 시험장 지도를 바로 확인할 수 있습니다.`,
       path: `/regions/${region}/dates/${examDate}`,
       keywords: [`${region} 토익 시험장`, `${examDate} 토익 시험장`],
+      // Ended exam dates stay useful for bookmarks and inbound links, but they
+      // carry no live information worth keeping in the index.
+      noindex: true,
     });
   }
 
@@ -78,6 +82,12 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
   ];
   const examDateLabel = getExamDateLabel(examDate);
   const intro = getRegionIntro(region);
+  const topCenterNames = landingData.centers
+    .slice(0, 3)
+    .map((center) => center.center_name)
+    .join(", ");
+  const insights = buildRegionInsights(landingData.centers);
+  const coverage = describeRegionCoverage(region, insights);
   const mapExamDate =
     landingData.status === "active" ? examDate : (relatedDates[0]?.examDate ?? "");
   const pagePath = `/regions/${region}/dates/${examDate}`;
@@ -125,7 +135,9 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
         <h1>{examDate} {region} 토익 시험장</h1>
         <p className="page-lead">
           {landingData.status === "active"
-            ? `${examDateLabel}과 ${region} 지역을 미리 선택했습니다. 아래 지도에서 시험장을 바로 확인하고 현재 위치 기준으로 정렬해 보세요.`
+            ? `${examDate}(${examDateLabel}) ${region} 지역에서 응시 가능한 토익 시험장은 총 ${landingData.centers.length}곳입니다${
+                topCenterNames ? `. 대표 시험장은 ${topCenterNames}입니다` : ""
+              }.`
             : `${examDateLabel} 시험은 종료되었습니다. 아래 지도에는 가장 가까운 다음 활성 시험일과 ${region} 지역을 선택해 두었습니다.`}
         </p>
         <div className="page-meta">
@@ -171,6 +183,7 @@ export default async function RegionDatePage({ params }: RegionDatePageProps) {
               ? `공식 조회에서 확인한 시험장명과 주소입니다. ${intro}`
               : "보존된 시험장 목록은 없지만 종료 상태와 다음 시험일 지도는 계속 제공합니다."}
           </p>
+          {coverage ? <p className="page-copy">{coverage}</p> : null}
         </div>
         {landingData.centers.length > 0 ? (
           <table className="page-table">

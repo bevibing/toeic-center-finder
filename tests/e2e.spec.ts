@@ -99,8 +99,11 @@ test.describe("TOEIC center finder", () => {
       "<loc>https://toeic.roundtable02.com/regions</loc>",
     );
 
-    const ogImageResponse = await request.get("/img.png");
+    const ogImageResponse = await request.get("/og.jpg");
     expect(ogImageResponse.ok()).toBeTruthy();
+    // Social platforms reject oversized previews; keep the asset well under 1MB.
+    const ogImageBytes = (await ogImageResponse.body()).byteLength;
+    expect(ogImageBytes).toBeLessThan(1_000_000);
 
     const legacyResponse = await request.get("/location-map-app/");
     expect(legacyResponse.status()).toBe(404);
@@ -224,10 +227,29 @@ test.describe("TOEIC center finder", () => {
     const sitemapHtml = await (await request.get("/sitemap.xml")).text();
     expect(sitemapHtml).toContain("<loc>https://toeic.roundtable02.com/about</loc>");
     expect(sitemapHtml).toContain("<loc>https://toeic.roundtable02.com/privacy</loc>");
+    // Active exam dates are submitted for indexing.
     expect(sitemapHtml).toContain(
+      "<loc>https://toeic.roundtable02.com/regions/%EC%84%9C%EC%9A%B8/dates/2026-04-26</loc>",
+    );
+    // Ended exam dates stay reachable but leave the sitemap.
+    expect(sitemapHtml).not.toContain(
       "<loc>https://toeic.roundtable02.com/regions/%EC%84%9C%EC%9A%B8/dates/2026-03-15</loc>",
     );
     expect(sitemapHtml).not.toContain("<lastmod>2026-04-26");
+  });
+
+  test("keeps ended exam dates reachable but out of the index", async ({ request }) => {
+    const archivedResponse = await request.get("/regions/서울/dates/2026-03-15");
+    expect(archivedResponse.ok()).toBeTruthy();
+
+    const archivedHtml = await archivedResponse.text();
+    expect(archivedHtml).toContain('name="robots"');
+    expect(archivedHtml).toContain("noindex");
+
+    const activeHtml = await (
+      await request.get("/regions/서울/dates/2026-04-26")
+    ).text();
+    expect(activeHtml).not.toContain("noindex");
   });
 
   test("preserves the API contract through Next route handlers", async ({ request }) => {

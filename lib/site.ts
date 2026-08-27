@@ -25,13 +25,43 @@ interface PageMetadataOptions {
   description: string;
   path?: string;
   keywords?: string[];
+  /**
+   * Keeps a page reachable and crawlable for users who arrive from bookmarks or
+   * old links while removing it from the index (used for ended exam dates).
+   */
+  noindex?: boolean;
 }
 
 export const getSiteUrl = (): string => getConfiguredSiteUrl();
 
+/**
+ * Percent-encodes each path segment so structured-data URLs match the
+ * canonical/og:url values Next.js emits for Hangul routes such as
+ * `/regions/서울` -> `/regions/%EC%84%9C%EC%9A%B8`.
+ */
 export const buildAbsoluteUrl = (path = "/"): string => {
   const siteUrl = getSiteUrl();
-  return path === "/" ? siteUrl : `${siteUrl}${path}`;
+
+  if (path === "/") {
+    return siteUrl;
+  }
+
+  const encodeSegment = (segment: string): string => {
+    if (!segment) {
+      return segment;
+    }
+
+    try {
+      // Decode first so an already-encoded segment is not double-encoded.
+      return encodeURIComponent(decodeURIComponent(segment));
+    } catch {
+      return encodeURIComponent(segment);
+    }
+  };
+
+  const encodedPath = path.split("/").map(encodeSegment).join("/");
+
+  return `${siteUrl}${encodedPath}`;
 };
 
 export const buildPageMetadata = ({
@@ -39,12 +69,14 @@ export const buildPageMetadata = ({
   description,
   path = "/",
   keywords = [],
+  noindex = false,
 }: PageMetadataOptions): Metadata => ({
   metadataBase: new URL(getSiteUrl()),
   title,
   description,
   keywords: [...DEFAULT_KEYWORDS, ...keywords],
   applicationName: SITE_NAME,
+  ...(noindex ? { robots: { index: false, follow: true } } : {}),
   alternates: {
     canonical: path,
   },
@@ -57,10 +89,10 @@ export const buildPageMetadata = ({
     locale: "ko_KR",
     images: [
       {
-        url: "/img.png",
-        width: 2942,
-        height: 1548,
-        alt: "토익 시험장 찾기 미리보기",
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "지역별 토익 시험장을 지도에서 확인하는 토익맵 화면 미리보기",
       },
     ],
   },
@@ -68,7 +100,7 @@ export const buildPageMetadata = ({
     card: "summary_large_image",
     title,
     description,
-    images: ["/img.png"],
+    images: ["/og.jpg"],
   },
   icons: {
     icon: [
@@ -94,6 +126,21 @@ export const buildMetadata = (): Metadata =>
       },
     },
   });
+
+export const SITE_REPOSITORY_URL = "https://github.com/bevibing/toeic-center-finder";
+
+export const buildOrganizationStructuredData = () => ({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${getSiteUrl()}/#organization`,
+  name: SITE_NAME,
+  alternateName: SITE_ALTERNATE_NAME,
+  url: getSiteUrl(),
+  logo: `${getSiteUrl()}/logo512.png`,
+  sameAs: [SITE_REPOSITORY_URL],
+  description:
+    "한국TOEIC위원회가 운영하는 공식 사이트가 아닌, 지역·시험일별 토익 시험장 정보를 정리해 제공하는 비공식 편의 도구입니다.",
+});
 
 export const buildWebsiteStructuredData = () => ({
   "@context": "https://schema.org",
@@ -128,11 +175,14 @@ export const buildCollectionPageStructuredData = ({
   description,
   path,
   itemNames,
+  itemPaths,
 }: {
   name: string;
   description: string;
   path: string;
   itemNames: string[];
+  /** Parallel to `itemNames`; makes the list machine-navigable. */
+  itemPaths?: string[];
 }) => ({
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -142,10 +192,12 @@ export const buildCollectionPageStructuredData = ({
   inLanguage: "ko-KR",
   mainEntity: {
     "@type": "ItemList",
+    numberOfItems: itemNames.length,
     itemListElement: itemNames.map((itemName, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: itemName,
+      ...(itemPaths?.[index] ? { item: buildAbsoluteUrl(itemPaths[index]) } : {}),
     })),
   },
 });

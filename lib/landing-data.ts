@@ -287,16 +287,75 @@ export const getRegionPageSummaries = async (
   return summaries.filter((value): value is RegionPageSummary => value !== null);
 };
 
+/**
+ * Sitemap-eligible landing pages.
+ *
+ * Mirrors the conditions `loadRegionDateLandingData` uses to resolve a page, so
+ * the sitemap can never advertise a URL the route itself answers with 404:
+ * the exam date must still be active, and the archive entry must hold at least
+ * one center. Ended exam dates stay reachable for users but leave the sitemap.
+ */
 export const getIndexedRegionDateLandings = async (): Promise<
   Array<{ region: string; examDate: string; lastModified: string }>
 > => {
-  const archive = await getToeicLandingArchive();
+  const [archive, schedules] = await Promise.all([
+    getToeicLandingArchive(),
+    loadActiveSchedules(),
+  ]);
+  const activeExamDates = new Set(schedules.map((schedule) => schedule.exam_day));
+  const today = getTodayInKorea();
 
-  return archive.entries.map((entry) => ({
-    region: entry.region,
-    examDate: entry.examDate,
-    lastModified: entry.updatedAt,
-  }));
+  return archive.entries
+    .filter(
+      (entry) =>
+        entry.examDate >= today &&
+        activeExamDates.has(entry.examDate) &&
+        entry.centers.length > 0,
+    )
+    .map((entry) => ({
+      region: entry.region,
+      examDate: entry.examDate,
+      lastModified: entry.updatedAt,
+    }));
+};
+
+export interface UpcomingExamDateSummary {
+  examDate: string;
+  displayLabel: string;
+  regionCount: number;
+  centerCount: number;
+}
+
+/**
+ * Nationwide overview of the upcoming exam dates, read straight from the
+ * checked-in archive so the home page can server-render real figures without
+ * fanning out to the upstream service on every request.
+ */
+export const getUpcomingExamDateOverview = async (
+  limit = 3,
+): Promise<UpcomingExamDateSummary[]> => {
+  const [archive, schedules] = await Promise.all([
+    getToeicLandingArchive(),
+    loadActiveSchedules(),
+  ]);
+  const today = getTodayInKorea();
+
+  return schedules
+    .filter((schedule) => schedule.exam_day >= today)
+    .slice(0, limit)
+    .map((schedule) => {
+      const entries = archive.entries.filter(
+        (entry) => entry.examDate === schedule.exam_day && entry.centers.length > 0,
+      );
+
+      return {
+        examDate: schedule.exam_day,
+        displayLabel: schedule.displayLabel,
+        regionCount: entries.length,
+        centerCount: entries.reduce((total, entry) => total + entry.centers.length, 0),
+      };
+    })
+    .filter((summary) => summary.regionCount > 0);
 };
 
 export const getExamDateLabel = (examDate: string): string => formatExamDateLabel(examDate);
