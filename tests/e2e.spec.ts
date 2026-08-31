@@ -82,6 +82,9 @@ test.describe("TOEIC center finder", () => {
   }) => {
     const homeResponse = await request.get("/");
     expect(homeResponse.ok()).toBeTruthy();
+    expect(homeResponse.headers()["content-security-policy"]).toContain(
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    );
     await expect(homeResponse.text()).resolves.not.toContain("/location-map-app");
     await expect(homeResponse.text()).resolves.toContain(
       'rel="canonical" href="https://toeic.roundtable02.com"',

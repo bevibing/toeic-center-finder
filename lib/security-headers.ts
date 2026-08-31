@@ -1,4 +1,8 @@
 const OSM_TILE_ORIGIN = "https://*.tile.openstreetmap.org";
+// Next.js Fast Refresh evaluates development bundles; production keeps the
+// stricter policy because NODE_ENV is set to "production" during next build.
+const DEVELOPMENT_SCRIPT_SOURCE =
+  process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "";
 
 /**
  * Leaflet marker icons ship from `/_next/static`, the SVG pin markers are
@@ -16,7 +20,7 @@ const ENFORCE_CONTENT_SECURITY_POLICY = true;
 
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${DEVELOPMENT_SCRIPT_SOURCE}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${OSM_TILE_ORIGIN}`,
   "font-src 'self' data:",
