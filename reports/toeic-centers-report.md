@@ -2,10 +2,10 @@
 
 ## Summary
 - Scanned schedules: 10
-- Observed centers: 251
+- Observed centers: 252
 - CSV centers: 314
 - New centers: 0
-- Stale candidates: 63
+- Stale candidates: 62
 - Changed metadata: 0
 - Manual review: 0
 
@@ -38,7 +38,6 @@
 - PBT_112 여명중 | 부산
 - PBT_147 연제중 | 부산
 - PBT_179 (unknown) | -
-- PBT_293 서울전일중 | 서울
 - PBT_343 만년중 | 대전
 - PBT_360 (unknown) | -
 - PBT_600 수원동성중 | 경기
