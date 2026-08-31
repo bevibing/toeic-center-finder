@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-23T18:18:33.056Z",
+  "generatedAt": "2026-08-30T20:20:49.888Z",
   "source": {
     "name": "한국TOEIC위원회 시험접수",
     "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
@@ -3148,11 +3148,6 @@
           "address": "경기도 성남시 분당구 탄천로 49 (이매동, 매송중학교)"
         },
         {
-          "center_code": "PBT_747",
-          "center_name": "소하중",
-          "address": "경기도 광명시 소하일로 31 (소하동, 소하중학교)"
-        },
-        {
           "center_code": "PBT_756",
           "center_name": "일산국제컨벤션고",
           "address": "경기도 고양시 일산서구 고봉로 133 (주엽동, 일산국제컨벤션고등학교)"
@@ -3323,7 +3318,7 @@
           "address": "경기도 성남시 중원구 원터로 84 (성남동, 동광고등학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-08-30",
@@ -4171,6 +4166,11 @@
           "address": "경기도 성남시 분당구 탄천로 49 (이매동, 매송중학교)"
         },
         {
+          "center_code": "PBT_747",
+          "center_name": "소하중",
+          "address": "경기도 광명시 소하일로 31 (소하동, 소하중학교)"
+        },
+        {
           "center_code": "PBT_756",
           "center_name": "일산국제컨벤션고",
           "address": "경기도 고양시 일산서구 고봉로 133 (주엽동, 일산국제컨벤션고등학교)"
@@ -4321,7 +4321,7 @@
           "address": "경기도 하남시 감일백제로 55 (감이동, 감일중학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-06",
@@ -4448,6 +4448,11 @@
       "region": "대구",
       "centers": [
         {
+          "center_code": "PBT_207",
+          "center_name": "신명여중",
+          "address": "대구광역시 수성구 신천동로 364"
+        },
+        {
           "center_code": "PBT_226",
           "center_name": "대구과학기술고",
           "address": "대구광역시 서구 당산로 228 (내당동, 서부공업고등학교)"
@@ -4488,7 +4493,7 @@
           "address": "대구광역시 중구 동성로1길 15 (동성로3가) 유니온스퀘어 4층 YBM어학원"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-06",
@@ -4514,9 +4519,14 @@
           "center_code": "PBT_D53",
           "center_name": "외삼중",
           "address": "대전광역시 유성구 반석동로 75 (반석동, 외삼중학교)"
+        },
+        {
+          "center_code": "PBT_D55",
+          "center_name": "문정중",
+          "address": "대전광역시 서구 둔산북로 232-11 (둔산동, 문정중학교)"
         }
       ],
-      "updatedAt": "2026-07-27T07:42:07.636Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-06",
@@ -4963,6 +4973,11 @@
           "address": "충청남도 아산시 탕정면 선문로221번길 70 (탕정면, 선문대학교) 인문관"
         },
         {
+          "center_code": "PBT_D50",
+          "center_name": "대성여상",
+          "address": "충청북도 청주시 상당구 대성로 220 (수동, 대성여자상업고등학교)"
+        },
+        {
           "center_code": "PBT_E43",
           "center_name": "청주대성중",
           "address": "충청북도 청주시 흥덕구 사운로 342 (신봉동, 대성중학교)"
@@ -4993,7 +5008,7 @@
           "address": "충청남도 홍성군 홍성읍 대학길 25 (홍성읍, 청운대학교)"
         }
       ],
-      "updatedAt": "2026-07-27T07:42:07.636Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -5072,6 +5087,11 @@
           "center_code": "PBT_743",
           "center_name": "매송중",
           "address": "경기도 성남시 분당구 탄천로 49 (이매동, 매송중학교)"
+        },
+        {
+          "center_code": "PBT_747",
+          "center_name": "소하중",
+          "address": "경기도 광명시 소하일로 31 (소하동, 소하중학교)"
         },
         {
           "center_code": "PBT_756",
@@ -5199,6 +5219,11 @@
           "address": "경기도 군포시 수리산로 39 (산본동, 수리고등학교)"
         },
         {
+          "center_code": "PBT_N69",
+          "center_name": "수현중",
+          "address": "경기도 화성시 효행구 봉담읍 상리3길 136 (봉담읍, 수현중학교)"
+        },
+        {
           "center_code": "PBT_N74",
           "center_name": "계원예술대 디자인관",
           "address": "경기도 의왕시 계원대학로 66 (내손동, 계원예술대학교) 디자인관"
@@ -5209,7 +5234,7 @@
           "address": "경기도 하남시 감일백제로 55 (감이동, 감일중학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -5331,9 +5356,14 @@
           "center_code": "PBT_D81",
           "center_name": "광주주월중",
           "address": "광주 남구 봉선로52번길 9 주월중학교"
+        },
+        {
+          "center_code": "PBT_H93",
+          "center_name": "상무고",
+          "address": "광주광역시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)"
         }
       ],
-      "updatedAt": "2026-07-27T07:42:07.636Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -5510,6 +5540,11 @@
           "address": "서울특별시 용산구 원효로97길 33-4 (청파동3가, 선린중학교,선린인터넷고등학교) 선린중학교"
         },
         {
+          "center_code": "PBT_293",
+          "center_name": "서울전일중",
+          "address": "서울특별시 동대문구 사가정로13길 67 (전농동, 전일중학교)"
+        },
+        {
           "center_code": "PBT_300",
           "center_name": "문래중",
           "address": "서울특별시 영등포구 선유서로13길 6"
@@ -5538,6 +5573,11 @@
           "center_code": "PBT_680",
           "center_name": "신목중",
           "address": "서울특별시 양천구 목동중앙로 88 (목동, 신목중학교)"
+        },
+        {
+          "center_code": "PBT_682",
+          "center_name": "온곡중",
+          "address": "서울특별시 노원구 노원로 492 (상계동, 온곡중학교)"
         },
         {
           "center_code": "PBT_683",
@@ -5695,7 +5735,7 @@
           "address": "서울특별시 도봉구 마들로 849 (도봉동, 누원고등학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -5744,6 +5784,11 @@
       "region": "인천",
       "centers": [
         {
+          "center_code": "PBT_709",
+          "center_name": "구월중",
+          "address": "인천광역시 남동구 남동대로 814 (구월동, 구월중학교)"
+        },
+        {
           "center_code": "PBT_739",
           "center_name": "인천중",
           "address": "인천광역시 연수구 함박뫼로 203 (연수동, 인천중학교)"
@@ -5752,6 +5797,11 @@
           "center_code": "PBT_C12",
           "center_name": "인하공전 8호관 평생교육원",
           "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고) 8호관"
+        },
+        {
+          "center_code": "PBT_C70",
+          "center_name": "문곡고",
+          "address": "인천광역시 서구 청마로 52 (당하동, 인천 세무고등학교)"
         },
         {
           "center_code": "PBT_F24",
@@ -5769,7 +5819,7 @@
           "address": "인천광역시 연수구 아카데미로312번길 84 (송도동, 인천현송중학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -5823,9 +5873,14 @@
           "center_code": "PBT_E80",
           "center_name": "군산대학교 인문대학",
           "address": "전라북도 군산시 대학로 558"
+        },
+        {
+          "center_code": "PBT_L01",
+          "center_name": "전주오송중",
+          "address": "전라북도 전주시 덕진구 천마산로 69 (송천동2가, 오송중학교)"
         }
       ],
-      "updatedAt": "2026-07-27T07:42:07.636Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-09-20",
@@ -6092,12 +6147,17 @@
           "address": "경기도 군포시 수리산로 39 (산본동, 수리고등학교)"
         },
         {
+          "center_code": "PBT_N74",
+          "center_name": "계원예술대 디자인관",
+          "address": "경기도 의왕시 계원대학로 66 (내손동, 계원예술대학교) 디자인관"
+        },
+        {
           "center_code": "PBT_N75",
           "center_name": "감일중",
           "address": "경기도 하남시 감일백제로 55 (감이동, 감일중학교)"
         }
       ],
-      "updatedAt": "2026-08-23T18:18:33.056Z"
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-10-11",
@@ -6762,6 +6822,39 @@
     {
       "examDate": "2026-10-31",
       "examCode": "TOE_581",
+      "region": "경북",
+      "centers": [
+        {
+          "center_code": "PBT_240",
+          "center_name": "구미여중",
+          "address": "경상북도 구미시 금오산로 162"
+        },
+        {
+          "center_code": "PBT_261",
+          "center_name": "길주중",
+          "address": "경상북도 안동시 경동로 931"
+        },
+        {
+          "center_code": "PBT_265",
+          "center_name": "동국대원효관",
+          "address": "경상북도 경주시 동대로 123 동국대원효관"
+        },
+        {
+          "center_code": "PBT_A51",
+          "center_name": "포항대학(성실관)",
+          "address": "경상북도 포항시 북구 흥해읍 포항대학로 7 (흥해읍, 포항대학교)"
+        },
+        {
+          "center_code": "PBT_E34",
+          "center_name": "대가대 교양관(A2)",
+          "address": "경상북도 경산시 하양로 13"
+        }
+      ],
+      "updatedAt": "2026-08-30T20:20:49.888Z"
+    },
+    {
+      "examDate": "2026-10-31",
+      "examCode": "TOE_581",
       "region": "광주",
       "centers": [
         {
@@ -6781,6 +6874,39 @@
         }
       ],
       "updatedAt": "2026-08-23T18:18:33.056Z"
+    },
+    {
+      "examDate": "2026-10-31",
+      "examCode": "TOE_581",
+      "region": "대구",
+      "centers": [
+        {
+          "center_code": "PBT_207",
+          "center_name": "신명여중",
+          "address": "대구광역시 수성구 신천동로 364"
+        },
+        {
+          "center_code": "PBT_235",
+          "center_name": "대구하이텍고",
+          "address": "대구광역시 달서구 학산남로 50"
+        },
+        {
+          "center_code": "PBT_264",
+          "center_name": "대구고산중",
+          "address": "대구광역시 수성구 천을로 71"
+        },
+        {
+          "center_code": "PBT_H66",
+          "center_name": "영진고",
+          "address": "대구광역시 북구 동북로57길 9 (복현동, 영진고등학교)"
+        },
+        {
+          "center_code": "PBT_M28",
+          "center_name": "YBM센터(대구 동성로)",
+          "address": "대구광역시 중구 동성로1길 15 (동성로3가) 유니온스퀘어 4층 YBM어학원"
+        }
+      ],
+      "updatedAt": "2026-08-30T20:20:49.888Z"
     },
     {
       "examDate": "2026-10-31",
