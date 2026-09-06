@@ -68,6 +68,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_087",
+      "centerName": "잠실고",
+      "address": "서울특별시 송파구 올림픽로33길 71 (신천동, 잠실고등학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_089",
       "centerName": "구로중",
       "address": "서울특별시 구로구 구로중앙로 48 (구로동, 구로중학교)",
@@ -1715,6 +1721,12 @@
       "centerCode": "PBT_N78",
       "centerName": "동광고",
       "address": "경기도 성남시 중원구 원터로 84 (성남동, 동광고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N80",
+      "centerName": "포천고",
+      "address": "경기도 포천시 원모루로 40 (신읍동, 포천고등학교)",
       "bigArea": "경기"
     }
   ]
