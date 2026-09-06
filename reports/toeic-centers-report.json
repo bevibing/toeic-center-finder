@@ -1,19 +1,15 @@
 {
   "version": 1,
   "summary": {
-    "scannedScheduleCount": 10,
-    "observedCenterCount": 252,
-    "csvCenterCount": 314,
+    "scannedScheduleCount": 9,
+    "observedCenterCount": 248,
+    "csvCenterCount": 316,
     "newCenterCount": 0,
-    "staleCenterCount": 62,
+    "staleCenterCount": 68,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
   "scannedSchedules": [
-    {
-      "examDay": "2026-08-23",
-      "examCode": "TOE_576"
-    },
     {
       "examDay": "2026-08-30",
       "examCode": "TOE_577"
@@ -90,12 +86,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_054",
-      "centerName": "등촌고",
-      "address": "서울특별시 강서구 공항대로39길 115 (등촌동, 등촌고등학교)",
-      "bigArea": "서울"
-    },
-    {
       "centerCode": "PBT_056",
       "centerName": null,
       "address": null,
@@ -144,10 +134,16 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_600",
-      "centerName": "수원동성중",
-      "address": "경기도 수원시 팔달구 월드컵로 293 (우만동, 동성중학교)",
-      "bigArea": "경기"
+      "centerCode": "PBT_396",
+      "centerName": "지족중",
+      "address": "대전광역시 유성구 노은동로 193",
+      "bigArea": "대전"
+    },
+    {
+      "centerCode": "PBT_429",
+      "centerName": "광주화정중",
+      "address": "광주광역시 서구 화운로 53",
+      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_607",
@@ -240,10 +236,28 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_C54",
+      "centerName": "부명고",
+      "address": "경기도 부천시 석천로 127 (중동, 부명고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_D31",
+      "centerName": "경암중",
+      "address": "대구광역시 달서구 당산로30길 20 (성당동, 경화여자고등학교, 경암중학교) 경암중학교",
+      "bigArea": "대구"
+    },
+    {
       "centerCode": "PBT_D44",
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_D82",
+      "centerName": "치평중",
+      "address": "광주광역시 서구 화정로21번길 5 (쌍촌동, 치평중학교)",
+      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_E16",
@@ -276,6 +290,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_H02",
+      "centerName": "인하공전 3호관",
+      "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고)",
+      "bigArea": "인천"
+    },
+    {
       "centerCode": "PBT_H35",
       "centerName": null,
       "address": null,
@@ -286,6 +306,18 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_H42",
+      "centerName": "한봄고",
+      "address": "경기도 수원시 권선구 호매실로 46-93 (탑동, 한봄고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_H68",
+      "centerName": "평택대 이공관",
+      "address": "경기도 평택시 서동대로 3825 (용이동, 평택대학교) 이공관",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_H74",
@@ -324,12 +356,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_M46",
-      "centerName": "광남고",
-      "address": "서울특별시 광진구 아차산로70길 17-16 (광장동, 광남고등학교)",
-      "bigArea": "서울"
-    },
-    {
       "centerCode": "PBT_M50",
       "centerName": null,
       "address": null,
@@ -340,12 +366,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_M78",
-      "centerName": "청천중",
-      "address": "인천광역시 부평구 마장로364번길 23 (청천동, 청천중학교)",
-      "bigArea": "인천"
     },
     {
       "centerCode": "PBT_M91",
@@ -366,6 +386,12 @@
       "bigArea": "경남"
     },
     {
+      "centerCode": "PBT_N03",
+      "centerName": "군산기계공고",
+      "address": "전북특별자치도 군산시 군중길 28 (송풍동, 군산기계공업고등학교)",
+      "bigArea": "전북"
+    },
+    {
       "centerCode": "PBT_N17",
       "centerName": "창원대 인문대학",
       "address": "경상남도 창원시 의창구 창원대학로 20 (퇴촌동, 창원대학교)",
@@ -382,6 +408,12 @@
       "centerName": "창원문성대 기술관(10호관)",
       "address": "경상남도 창원시 성산구 충혼로 91 (두대동, 창원문성대학) 창원문성대학교 기술관(10호관)",
       "bigArea": "경남"
+    },
+    {
+      "centerCode": "PBT_N22",
+      "centerName": "대구남산고",
+      "address": "대구광역시 수성구 신천동로 364 (수성동1가, 신명여중, 남산고등학교)",
+      "bigArea": "대구"
     },
     {
       "centerCode": "PBT_N33",
