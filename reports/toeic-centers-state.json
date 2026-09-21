@@ -56,6 +56,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_069",
+      "centerName": "중경고",
+      "address": "서울특별시 용산구 이촌로84길 34 (이촌동, 중경고등학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_070",
       "centerName": "신림중",
       "address": "서울특별시 관악구 신림로 40 (신림동, 서울신림중학교)",
@@ -65,6 +71,12 @@
       "centerCode": "PBT_079",
       "centerName": "선린인터넷고",
       "address": "서울특별시 용산구 원효로97길 33-4 (청파동3가, 선린중학교,선린인터넷고등학교) 선린인터넷고등학교",
+      "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_087",
+      "centerName": "잠실고",
+      "address": "서울특별시 송파구 올림픽로33길 71 (신천동, 잠실고등학교)",
       "bigArea": "서울"
     },
     {
@@ -84,6 +96,12 @@
       "centerName": "동마중",
       "address": "서울특별시 성동구 마조로11길 18 (마장동, 동마중학교)",
       "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_103",
+      "centerName": "부산금정중",
+      "address": "부산광역시 금정구 중앙대로 2104 (남산동, 금정중학교) 금정중학교",
+      "bigArea": "부산"
     },
     {
       "centerCode": "PBT_108",
@@ -815,6 +833,12 @@
       "centerCode": "PBT_993",
       "centerName": "부림중",
       "address": "경기도 안양시 동안구 달안로 95 (관양동, 부림중학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_A12",
+      "centerName": "라온중(구 송탄제일중)",
+      "address": "경기도 평택시 경기대로1376번길 38-6 (서정동, 라온고등학교, 라온중학교)",
       "bigArea": "경기"
     },
     {
@@ -1715,6 +1739,18 @@
       "centerCode": "PBT_N78",
       "centerName": "동광고",
       "address": "경기도 성남시 중원구 원터로 84 (성남동, 동광고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N79",
+      "centerName": "덕현중",
+      "address": "경기도 양주시 고읍로35번길 21 (고읍동, 덕현중학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N80",
+      "centerName": "포천고",
+      "address": "경기도 포천시 원모루로 40 (신읍동, 포천고등학교)",
       "bigArea": "경기"
     }
   ]
