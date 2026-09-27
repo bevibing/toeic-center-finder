@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 8,
-    "observedCenterCount": 249,
-    "csvCenterCount": 320,
+    "observedCenterCount": 259,
+    "csvCenterCount": 324,
     "newCenterCount": 0,
-    "staleCenterCount": 71,
+    "staleCenterCount": 65,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -124,18 +124,6 @@
       "bigArea": "충청"
     },
     {
-      "centerCode": "PBT_378",
-      "centerName": "천안여중",
-      "address": "충청남도 천안시 동남구 원거리11길 31",
-      "bigArea": "충청"
-    },
-    {
-      "centerCode": "PBT_396",
-      "centerName": "지족중",
-      "address": "대전광역시 유성구 노은동로 193",
-      "bigArea": "대전"
-    },
-    {
       "centerCode": "PBT_405",
       "centerName": "동신대 동신행정관",
       "address": "전라남도 나주시 건재로 185",
@@ -202,12 +190,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_B03",
-      "centerName": null,
-      "address": null,
-      "bigArea": null
-    },
-    {
       "centerCode": "PBT_B25",
       "centerName": "강원대 강릉캠 인문관",
       "address": "강원특별자치도 강릉시 죽헌길 7 (지변동, 강원대학교 강릉캠퍼스) 강원대학교 강릉캠퍼스 인문관",
@@ -248,12 +230,6 @@
       "centerName": "인제대 신어관",
       "address": "경상남도 김해시 인제로 197",
       "bigArea": "경남"
-    },
-    {
-      "centerCode": "PBT_E28",
-      "centerName": "대가대 취창업관(B1)",
-      "address": "경상북도 경산시 하양로 13",
-      "bigArea": "경북"
     },
     {
       "centerCode": "PBT_E46",
@@ -302,12 +278,6 @@
       "centerName": "평택대 이공관",
       "address": "경기도 평택시 서동대로 3825 (용이동, 평택대학교) 이공관",
       "bigArea": "경기"
-    },
-    {
-      "centerCode": "PBT_H74",
-      "centerName": "광주대 호심관",
-      "address": "광주광역시 남구 효덕로 277 (진월동, 광주대학교) 호심관",
-      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_H82",
@@ -422,12 +392,6 @@
       "centerName": "대구남산고",
       "address": "대구광역시 수성구 신천동로 364 (수성동1가, 신명여중, 남산고등학교)",
       "bigArea": "대구"
-    },
-    {
-      "centerCode": "PBT_N31",
-      "centerName": "충주공고",
-      "address": "충청북도 충주시 형설로 120 (용산동, 충주공업고등학교)",
-      "bigArea": "충청"
     },
     {
       "centerCode": "PBT_N33",

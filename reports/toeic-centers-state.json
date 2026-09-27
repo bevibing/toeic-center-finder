@@ -854,6 +854,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_B03",
+      "centerName": "진관중",
+      "address": "서울특별시 은평구 진관4로 36 (진관동, 진관중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_B06",
       "centerName": "숭인중",
       "address": "서울특별시 동대문구 천호대로47길 34 (답십리동, 숭인중학교)",
@@ -1118,6 +1124,12 @@
       "bigArea": "전북"
     },
     {
+      "centerCode": "PBT_E75",
+      "centerName": "원광대 사회과학대학",
+      "address": "전라북도 익산시 익산대로 460",
+      "bigArea": "전북"
+    },
+    {
       "centerCode": "PBT_E80",
       "centerName": "군산대학교 인문대학",
       "address": "전라북도 군산시 대학로 558",
@@ -1346,6 +1358,12 @@
       "bigArea": "경남"
     },
     {
+      "centerCode": "PBT_J05",
+      "centerName": "강남대 교육관",
+      "address": "경기도 용인시 기흥구 강남로 40 (구갈동, 강남대학교 교육관)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_K01",
       "centerName": "목운중",
       "address": "서울특별시 양천구 목동동로 235 (목동, 목운초등학교.중학교) 목운중학교",
@@ -1362,6 +1380,12 @@
       "centerName": "전주오송중",
       "address": "전라북도 전주시 덕진구 천마산로 69 (송천동2가, 오송중학교)",
       "bigArea": "전북"
+    },
+    {
+      "centerCode": "PBT_M05",
+      "centerName": "고려대세종캠(공공정책관)",
+      "address": "세종특별자치시 조치원읍 세종로 2511 (조치원읍, 고려대학교세종캠퍼스) 공공정책대학",
+      "bigArea": "세종"
     },
     {
       "centerCode": "PBT_M11",
@@ -1428,6 +1452,12 @@
       "centerName": "목포해양대 글로벌창의융합관",
       "address": "전라남도 목포시 해양대학로 91 (죽교동, 해양대학교) 목포해양대학교 글로벌창의융합관 3층 국제교류원",
       "bigArea": "전남"
+    },
+    {
+      "centerCode": "PBT_M55",
+      "centerName": "한국전통문화대 E동",
+      "address": "충청남도 부여군 규암면 백제문로 367 (규암면, 한국전통문화대학교)",
+      "bigArea": "충청"
     },
     {
       "centerCode": "PBT_M60",
