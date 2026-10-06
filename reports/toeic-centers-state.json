@@ -266,6 +266,12 @@
       "bigArea": "부산"
     },
     {
+      "centerCode": "PBT_292",
+      "centerName": "한강중",
+      "address": "서울특별시 용산구 녹사평대로 73 (서빙고동, 한강중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_293",
       "centerName": "서울전일중",
       "address": "서울특별시 동대문구 사가정로13길 67 (전농동, 전일중학교)",
@@ -1781,6 +1787,18 @@
       "centerCode": "PBT_N80",
       "centerName": "포천고",
       "address": "경기도 포천시 원모루로 40 (신읍동, 포천고등학교)",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N82",
+      "centerName": "제주대 아라캠 언어교육원",
+      "address": "제주특별자치도 제주시 제주대학로 102 (아라일동, 제주대학교) 아라캠퍼스 언어교육원",
+      "bigArea": "제주"
+    },
+    {
+      "centerCode": "PBT_N84",
+      "centerName": "경인교대 경기캠 인문사회관",
+      "address": "경기도 안양시 만안구 삼막로 155 (석수동, 경인교육대학교경기캠퍼스) 인문사회관",
       "bigArea": "경기"
     }
   ]

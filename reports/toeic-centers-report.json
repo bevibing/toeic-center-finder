@@ -1,19 +1,15 @@
 {
   "version": 1,
   "summary": {
-    "scannedScheduleCount": 8,
-    "observedCenterCount": 259,
-    "csvCenterCount": 324,
+    "scannedScheduleCount": 7,
+    "observedCenterCount": 243,
+    "csvCenterCount": 327,
     "newCenterCount": 0,
-    "staleCenterCount": 65,
+    "staleCenterCount": 84,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
   "scannedSchedules": [
-    {
-      "examDay": "2026-09-20",
-      "examCode": "TOE_579"
-    },
     {
       "examDay": "2026-10-11",
       "examCode": "TOE_580"
@@ -70,6 +66,18 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_023",
+      "centerName": "삼선중",
+      "address": "서울특별시 성북구 동소문로3길 69 (동소문동4가, 삼선중학교)",
+      "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_037",
+      "centerName": "양화중",
+      "address": "서울특별시 영등포구 당산로 56 (문래동3가, 양화중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_042",
       "centerName": null,
       "address": null,
@@ -100,6 +108,12 @@
       "bigArea": "부산"
     },
     {
+      "centerCode": "PBT_144",
+      "centerName": "울산상고",
+      "address": "울산광역시 울주군 장검길 11",
+      "bigArea": "울산"
+    },
+    {
       "centerCode": "PBT_147",
       "centerName": "연제중",
       "address": "부산광역시 연제구 쌍미천로 62 (연산동, 연제중학교)",
@@ -110,6 +124,18 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_181",
+      "centerName": "부산하남중",
+      "address": "부산광역시 사하구 하신번영로 206 (하단동, 하남중학교)",
+      "bigArea": "부산"
+    },
+    {
+      "centerCode": "PBT_306",
+      "centerName": "충남여중",
+      "address": "대전광역시 중구 동서대로1352번길 33",
+      "bigArea": "대전"
     },
     {
       "centerCode": "PBT_360",
@@ -136,6 +162,12 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_622",
+      "centerName": "권선중",
+      "address": "경기도 수원시 권선구 경수대로 239 (세류동, 권선중학교)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_647",
       "centerName": null,
       "address": null,
@@ -154,16 +186,28 @@
       "bigArea": null
     },
     {
+      "centerCode": "PBT_755",
+      "centerName": "청량고",
+      "address": "서울특별시 동대문구 왕산로 303 (청량리동, 청량고등학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_761",
       "centerName": null,
       "address": null,
       "bigArea": null
     },
     {
-      "centerCode": "PBT_785",
-      "centerName": "수유중",
-      "address": "서울특별시 강북구 인수봉로37길 40 (수유동, 수유중학교)",
-      "bigArea": "서울"
+      "centerCode": "PBT_764",
+      "centerName": "동일공고",
+      "address": "경기도 평택시 중앙로 315 (비전동) 동일공업고등학교",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_911",
+      "centerName": "제주중앙여중",
+      "address": "제주특별자치도 제주시 서사로11길 8 (삼도이동, 제주중앙여자중학교)",
+      "bigArea": "제주"
     },
     {
       "centerCode": "PBT_948",
@@ -196,9 +240,9 @@
       "bigArea": "강원"
     },
     {
-      "centerCode": "PBT_C34",
-      "centerName": "고양신원중",
-      "address": "경기도 고양시 덕양구 신원2로 6 (신원동, 신원중학교)",
+      "centerCode": "PBT_C03",
+      "centerName": "소하고",
+      "address": "경기도 광명시 소하일로 21 (소하동, 소하고등학교)",
       "bigArea": "경기"
     },
     {
@@ -208,9 +252,33 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_C70",
+      "centerName": "문곡고",
+      "address": "인천광역시 서구 청마로 52 (당하동, 인천 세무고등학교)",
+      "bigArea": "인천"
+    },
+    {
+      "centerCode": "PBT_D13",
+      "centerName": "고양일고",
+      "address": "경기도 고양시 덕양구 읍내로 13 (고양동, 고양일고등학교)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_D31",
       "centerName": "경암중",
       "address": "대구광역시 달서구 당산로30길 20 (성당동, 경화여자고등학교, 경암중학교) 경암중학교",
+      "bigArea": "대구"
+    },
+    {
+      "centerCode": "PBT_D33",
+      "centerName": "성지중",
+      "address": "대구광역시 달서구 성서동로 361 (이곡동, 성지중학교)",
+      "bigArea": "대구"
+    },
+    {
+      "centerCode": "PBT_D40",
+      "centerName": "대구상원중",
+      "address": "대구광역시 달서구 상인로 117 (상인동, 상원중학교)",
       "bigArea": "대구"
     },
     {
@@ -230,6 +298,12 @@
       "centerName": "인제대 신어관",
       "address": "경상남도 김해시 인제로 197",
       "bigArea": "경남"
+    },
+    {
+      "centerCode": "PBT_E22",
+      "centerName": "포항중",
+      "address": "경상북도 포항시 북구 학산로 45 (학산동, 포항중학교)",
+      "bigArea": "경북"
     },
     {
       "centerCode": "PBT_E46",
@@ -280,6 +354,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_H81",
+      "centerName": "진접고",
+      "address": "경기도 남양주시 진접읍 해밀예당2로 13 (진접읍, 진접고등학교)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_H82",
       "centerName": "동강대 인문사회관",
       "address": "광주광역시 북구 동문대로 50 (두암동, 동강대학,동신중.고,동신여중.고등학교) 동강대 인문사회관",
@@ -290,6 +370,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_H93",
+      "centerName": "상무고",
+      "address": "광주광역시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)",
+      "bigArea": "광주"
     },
     {
       "centerCode": "PBT_H94",
@@ -314,6 +400,12 @@
       "centerName": null,
       "address": null,
       "bigArea": null
+    },
+    {
+      "centerCode": "PBT_M23",
+      "centerName": "진관고",
+      "address": "서울특별시 은평구 진관4로 26 (진관동, 진관고등학교) .",
+      "bigArea": "서울"
     },
     {
       "centerCode": "PBT_M31",
@@ -370,6 +462,12 @@
       "bigArea": "전북"
     },
     {
+      "centerCode": "PBT_N08",
+      "centerName": "목포대 정보종합센터",
+      "address": "전라남도 무안군 청계면 영산로 1666 (청계면)",
+      "bigArea": "전남"
+    },
+    {
       "centerCode": "PBT_N17",
       "centerName": "창원대 인문대학",
       "address": "경상남도 창원시 의창구 창원대학로 20 (퇴촌동, 창원대학교)",
@@ -398,6 +496,12 @@
       "centerName": "공주영명고",
       "address": "충청남도 공주시 영명학당2길 33 (중동, 공주영명중고등학교)",
       "bigArea": "충청"
+    },
+    {
+      "centerCode": "PBT_N35",
+      "centerName": "한솔고",
+      "address": "경기도 성남시 분당구 내정로 70 (정자동, 한솔고등학교)",
+      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N40",
@@ -434,6 +538,12 @@
       "centerName": "인천바이오과학고",
       "address": "인천광역시 연수구 용담로 12 (청학동, 인천바이오과학고등학교)",
       "bigArea": "인천"
+    },
+    {
+      "centerCode": "PBT_N77",
+      "centerName": "동아마이스터고",
+      "address": "대전광역시 동구 충정로 97 (자양동, 동아마이스터고등학교)",
+      "bigArea": "대전"
     }
   ],
   "changedMetadata": [],
