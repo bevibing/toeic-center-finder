@@ -218,6 +218,12 @@
       "bigArea": "대구"
     },
     {
+      "centerCode": "PBT_229",
+      "centerName": "지산중",
+      "address": "전남광주통합특별시 북구 양산택지로 130 (본촌동, 지산중학교)",
+      "bigArea": "광주"
+    },
+    {
       "centerCode": "PBT_231",
       "centerName": "안양대(수리관)",
       "address": "경기도 안양시 만안구 삼덕로37번길 22 (안양동, 안양대학교) 수리관",
@@ -992,6 +998,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_D20",
+      "centerName": "부경대 호연관",
+      "address": "부산광역시 남구 용소로 45 (대연동, 부경대학교대연캠퍼스)",
+      "bigArea": "부산"
+    },
+    {
       "centerCode": "PBT_D26",
       "centerName": "신용중",
       "address": "광주광역시 북구 첨단연신로133번길 32 (신용동, 신용중학교)",
@@ -1380,6 +1392,12 @@
       "centerName": "하계중",
       "address": "서울특별시 노원구 노원로 261-8 (하계동, 하계중학교) 하계중학교",
       "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_K27",
+      "centerName": "한라대 한라관",
+      "address": "강원도 원주시 흥업면 한라대길 28 (흥업면, 한라대학교) 한라관",
+      "bigArea": "강원"
     },
     {
       "centerCode": "PBT_L01",
@@ -1794,6 +1812,12 @@
       "centerName": "제주대 아라캠 언어교육원",
       "address": "제주특별자치도 제주시 제주대학로 102 (아라일동, 제주대학교) 아라캠퍼스 언어교육원",
       "bigArea": "제주"
+    },
+    {
+      "centerCode": "PBT_N83",
+      "centerName": "가좌여중",
+      "address": "인천광역시 서해구 서달로 110 (석남동, 가좌여자중학교)",
+      "bigArea": "인천"
     },
     {
       "centerCode": "PBT_N84",
