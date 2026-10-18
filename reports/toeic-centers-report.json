@@ -2,10 +2,10 @@
   "version": 1,
   "summary": {
     "scannedScheduleCount": 7,
-    "observedCenterCount": 263,
-    "csvCenterCount": 331,
+    "observedCenterCount": 280,
+    "csvCenterCount": 339,
     "newCenterCount": 0,
-    "staleCenterCount": 68,
+    "staleCenterCount": 59,
     "changedMetadataCount": 0,
     "manualReviewCount": 0
   },
@@ -108,12 +108,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_363",
-      "centerName": "용남중",
-      "address": "충청남도 계룡시 신도안2길 66",
-      "bigArea": "충청"
-    },
-    {
       "centerCode": "PBT_366",
       "centerName": "충주여중",
       "address": "충청북도 충주시 예성로 221 (교현동, 충주여자중학교)",
@@ -124,12 +118,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_622",
-      "centerName": "권선중",
-      "address": "경기도 수원시 권선구 경수대로 239 (세류동, 권선중학교)",
-      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_647",
@@ -192,12 +180,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_D13",
-      "centerName": "고양일고",
-      "address": "경기도 고양시 덕양구 읍내로 13 (고양동, 고양일고등학교)",
-      "bigArea": "경기"
-    },
-    {
       "centerCode": "PBT_D33",
       "centerName": "성지중",
       "address": "대구광역시 달서구 성서동로 361 (이곡동, 성지중학교)",
@@ -246,12 +228,6 @@
       "bigArea": "경기"
     },
     {
-      "centerCode": "PBT_F42",
-      "centerName": "정각중",
-      "address": "인천광역시 남동구 구월로 240 (구월동, 정각중학교)",
-      "bigArea": "인천"
-    },
-    {
       "centerCode": "PBT_H02",
       "centerName": "인하공전 3호관",
       "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고)",
@@ -276,12 +252,6 @@
       "bigArea": "경기"
     },
     {
-      "centerCode": "PBT_H81",
-      "centerName": "진접고",
-      "address": "경기도 남양주시 진접읍 해밀예당2로 13 (진접읍, 진접고등학교)",
-      "bigArea": "경기"
-    },
-    {
       "centerCode": "PBT_H82",
       "centerName": "동강대 인문사회관",
       "address": "광주광역시 북구 동문대로 50 (두암동, 동강대학,동신중.고,동신여중.고등학교) 동강대 인문사회관",
@@ -292,12 +262,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_H94",
-      "centerName": "경상대 가좌캠퍼스 GNU국제관",
-      "address": "경상남도 진주시 진주대로 501 (가좌동, 경상국립대학교 가좌캠퍼스) 경상대 가좌캠퍼스 GNU국제관",
-      "bigArea": "경남"
     },
     {
       "centerCode": "PBT_K01",
@@ -316,12 +280,6 @@
       "centerName": null,
       "address": null,
       "bigArea": null
-    },
-    {
-      "centerCode": "PBT_M23",
-      "centerName": "진관고",
-      "address": "서울특별시 은평구 진관4로 26 (진관동, 진관고등학교) .",
-      "bigArea": "서울"
     },
     {
       "centerCode": "PBT_M31",
@@ -390,12 +348,6 @@
       "bigArea": null
     },
     {
-      "centerCode": "PBT_N21",
-      "centerName": "창원문성대 기술관(10호관)",
-      "address": "경상남도 창원시 성산구 충혼로 91 (두대동, 창원문성대학) 창원문성대학교 기술관(10호관)",
-      "bigArea": "경남"
-    },
-    {
       "centerCode": "PBT_N22",
       "centerName": "대구남산고",
       "address": "대구광역시 수성구 신천동로 364 (수성동1가, 신명여중, 남산고등학교)",
@@ -424,12 +376,6 @@
       "centerName": "인하공전 6호관",
       "address": "인천광역시 미추홀구 인하로 100 (용현동, 인하대,인하공전,정석항공고) 6호관",
       "bigArea": "인천"
-    },
-    {
-      "centerCode": "PBT_N52",
-      "centerName": "송운중",
-      "address": "경기도 시흥시 옥구천동로 433-11 (정왕동, 송운중학교)",
-      "bigArea": "경기"
     },
     {
       "centerCode": "PBT_N56",

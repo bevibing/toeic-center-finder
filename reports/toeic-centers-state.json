@@ -404,6 +404,12 @@
       "bigArea": "전남"
     },
     {
+      "centerCode": "PBT_413",
+      "centerName": "완산여고",
+      "address": "전라북도 전주시 완산구 덕적골1길 60",
+      "bigArea": "전북"
+    },
+    {
       "centerCode": "PBT_421",
       "centerName": "광주영천중",
       "address": "광주광역시 광산구 사암로340번안길 21",
@@ -596,6 +602,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_673",
+      "centerName": "연희중",
+      "address": "서울특별시 서대문구 증가로 170 (남가좌동, 연희중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_680",
       "centerName": "신목중",
       "address": "서울특별시 양천구 목동중앙로 88 (목동, 신목중학교)",
@@ -728,6 +740,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_886",
+      "centerName": "신곡중",
+      "address": "경기도 의정부시 추동로24번길 23 (신곡동, 신곡중학교)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_889",
       "centerName": "무학중",
       "address": "서울특별시 성동구 행당로 120 (행당동, 무학중학교)",
@@ -854,6 +872,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_A42",
+      "centerName": "대전대 인문사회관",
+      "address": "대전광역시 동구 대학로 62",
+      "bigArea": "대전"
+    },
+    {
       "centerCode": "PBT_A51",
       "centerName": "포항대학(성실관)",
       "address": "경상북도 포항시 북구 흥해읍 포항대학로 7 (흥해읍, 포항대학교)",
@@ -875,6 +899,12 @@
       "centerCode": "PBT_B06",
       "centerName": "숭인중",
       "address": "서울특별시 동대문구 천호대로47길 34 (답십리동, 숭인중학교)",
+      "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_B09",
+      "centerName": "창천중",
+      "address": "서울특별시 마포구 백범로1길 56 (노고산동, 창천초등,중학교) 창천중학교",
       "bigArea": "서울"
     },
     {
@@ -1824,6 +1854,24 @@
       "centerName": "경인교대 경기캠 인문사회관",
       "address": "경기도 안양시 만안구 삼막로 155 (석수동, 경인교육대학교경기캠퍼스) 인문사회관",
       "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N85",
+      "centerName": "월봉중",
+      "address": "전남광주통합특별시 광산구 산월로 107 (산월동, 월봉중학교)",
+      "bigArea": "광주"
+    },
+    {
+      "centerCode": "PBT_N86",
+      "centerName": "대전예술고",
+      "address": "대전광역시 유성구 월드컵대로308번길 33 (상대동, 대전예술고등학교)",
+      "bigArea": "대전"
+    },
+    {
+      "centerCode": "PBT_N87",
+      "centerName": "우석대 교양관",
+      "address": "전북특별자치도 완주군 삼례읍 삼례로 443 (삼례읍, 우석대학교) 우석대 교양관",
+      "bigArea": "전북"
     }
   ]
 }
