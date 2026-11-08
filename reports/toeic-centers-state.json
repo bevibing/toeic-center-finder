@@ -221,7 +221,7 @@
       "centerCode": "PBT_229",
       "centerName": "지산중",
       "address": "전남광주통합특별시 북구 양산택지로 130 (본촌동, 지산중학교)",
-      "bigArea": "광주"
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_231",
@@ -400,20 +400,26 @@
     {
       "centerCode": "PBT_405",
       "centerName": "동신대 동신행정관",
-      "address": "전라남도 나주시 건재로 185",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 나주시 건재로 185",
+      "bigArea": "전남광주-전남"
+    },
+    {
+      "centerCode": "PBT_413",
+      "centerName": "완산여고",
+      "address": "전라북도 전주시 완산구 덕적골1길 60",
+      "bigArea": "전북"
     },
     {
       "centerCode": "PBT_421",
       "centerName": "광주영천중",
-      "address": "광주광역시 광산구 사암로340번안길 21",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 광산구 사암로340번안길 21",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_429",
       "centerName": "광주화정중",
-      "address": "광주광역시 서구 화운로 53",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 서구 화운로 53",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_432",
@@ -424,20 +430,20 @@
     {
       "centerCode": "PBT_435",
       "centerName": "유달중",
-      "address": "전라남도 목포시 산정로 171",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 목포시 산정로 171",
+      "bigArea": "전남광주-전남"
     },
     {
       "centerCode": "PBT_452",
       "centerName": "광주금호중",
-      "address": "광주광역시 서구 금화로115번길 72",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 서구 금화로115번길 72",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_464",
       "centerName": "문흥중",
-      "address": "광주광역시 북구 능안로 2",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 북구 능안로 2",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_465",
@@ -454,8 +460,8 @@
     {
       "centerCode": "PBT_476",
       "centerName": "광주봉산중(산월동)",
-      "address": "광주광역시 광산구 산월로 67",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 광산구 산월로 67",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_491",
@@ -596,6 +602,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_673",
+      "centerName": "연희중",
+      "address": "서울특별시 서대문구 증가로 170 (남가좌동, 연희중학교)",
+      "bigArea": "서울"
+    },
+    {
       "centerCode": "PBT_680",
       "centerName": "신목중",
       "address": "서울특별시 양천구 목동중앙로 88 (목동, 신목중학교)",
@@ -728,6 +740,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_886",
+      "centerName": "신곡중",
+      "address": "경기도 의정부시 추동로24번길 23 (신곡동, 신곡중학교)",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_889",
       "centerName": "무학중",
       "address": "서울특별시 성동구 행당로 120 (행당동, 무학중학교)",
@@ -849,9 +867,15 @@
     },
     {
       "centerCode": "PBT_A12",
-      "centerName": "라온중(구 송탄제일중)",
+      "centerName": "라온중",
       "address": "경기도 평택시 경기대로1376번길 38-6 (서정동, 라온고등학교, 라온중학교)",
       "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_A42",
+      "centerName": "대전대 인문사회관",
+      "address": "대전광역시 동구 대학로 62",
+      "bigArea": "대전"
     },
     {
       "centerCode": "PBT_A51",
@@ -875,6 +899,12 @@
       "centerCode": "PBT_B06",
       "centerName": "숭인중",
       "address": "서울특별시 동대문구 천호대로47길 34 (답십리동, 숭인중학교)",
+      "bigArea": "서울"
+    },
+    {
+      "centerCode": "PBT_B09",
+      "centerName": "창천중",
+      "address": "서울특별시 마포구 백범로1길 56 (노고산동, 창천초등,중학교) 창천중학교",
       "bigArea": "서울"
     },
     {
@@ -988,7 +1018,7 @@
     {
       "centerCode": "PBT_C70",
       "centerName": "문곡고",
-      "address": "인천광역시 서구 청마로 52 (당하동, 인천 세무고등학교)",
+      "address": "인천광역시 검단구 청마로 52 (당하동, 문곡고등학교)",
       "bigArea": "인천"
     },
     {
@@ -1006,8 +1036,8 @@
     {
       "centerCode": "PBT_D26",
       "centerName": "신용중",
-      "address": "광주광역시 북구 첨단연신로133번길 32 (신용동, 신용중학교)",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 북구 첨단연신로133번길 32 (신용동, 신용중학교)",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_D31",
@@ -1060,8 +1090,8 @@
     {
       "centerCode": "PBT_D81",
       "centerName": "광주주월중",
-      "address": "광주 남구 봉선로52번길 9 주월중학교",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 남구 봉선로52번길 9 주월중학교",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_D82",
@@ -1072,8 +1102,8 @@
     {
       "centerCode": "PBT_D86",
       "centerName": "광주중",
-      "address": "광주광역시 서구 화개중앙로 60 (금호동, 광주중학교)",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 서구 화개중앙로 60 (금호동, 광주중학교)",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_E16",
@@ -1198,8 +1228,8 @@
     {
       "centerCode": "PBT_F43",
       "centerName": "전남대(여수) 교양관",
-      "address": "전라남도 여수시 대학로 50 (둔덕동, 전남대학교 여수캠퍼스) 교양관",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 여수시 대학로 50 (둔덕동, 전남대학교 여수캠퍼스) 교양관",
+      "bigArea": "전남광주-전남"
     },
     {
       "centerCode": "PBT_F45",
@@ -1324,8 +1354,8 @@
     {
       "centerCode": "PBT_H74",
       "centerName": "광주대 호심관",
-      "address": "광주광역시 남구 효덕로 277 (진월동, 광주대학교) 호심관",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 남구 효덕로 277 (진월동, 광주대학교) 호심관",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_H79",
@@ -1366,8 +1396,8 @@
     {
       "centerCode": "PBT_H93",
       "centerName": "상무고",
-      "address": "광주광역시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 서구 상무민주로32번길 28 (쌍촌동, 상무고등학교)",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_H94",
@@ -1474,8 +1504,8 @@
     {
       "centerCode": "PBT_M51",
       "centerName": "목포해양대 글로벌창의융합관",
-      "address": "전라남도 목포시 해양대학로 91 (죽교동, 해양대학교) 목포해양대학교 글로벌창의융합관 3층 국제교류원",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 목포시 해양대학로 91 (죽교동, 해양대학교) 목포해양대학교 글로벌창의융합관 3층 국제교류원",
+      "bigArea": "전남광주-전남"
     },
     {
       "centerCode": "PBT_M55",
@@ -1594,14 +1624,14 @@
     {
       "centerCode": "PBT_N14",
       "centerName": "순천청암대 청암관",
-      "address": "전라남도 순천시 녹색로 1641 (덕월동, 순천청암대학)",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 순천시 녹색로 1641 (덕월동, 순천청암대학)",
+      "bigArea": "전남광주-전남"
     },
     {
       "centerCode": "PBT_N15",
       "centerName": "한영대(여수) 공학관",
-      "address": "전라남도 여수시 장군산길 18-43 (여서동, 한영대학교, 한영고등학교) 한영대학교 공학관",
-      "bigArea": "전남"
+      "address": "전남광주통합특별시 여수시 장군산길 18-43 (여서동, 한영대학교, 한영고등학교) 한영대학교 공학관",
+      "bigArea": "전남광주-전남"
     },
     {
       "centerCode": "PBT_N16",
@@ -1630,7 +1660,7 @@
     {
       "centerCode": "PBT_N24",
       "centerName": "한국주얼리고",
-      "address": "인천광역시 서구 서곶로 693-1 (백석동, 한국주얼리고등학교)",
+      "address": "인천광역시 검단구 서곶로 693-1 (백석동, 한국주얼리고등학교)",
       "bigArea": "인천"
     },
     {
@@ -1660,8 +1690,8 @@
     {
       "centerCode": "PBT_N34",
       "centerName": "광주금구중",
-      "address": "광주광역시 광산구 목련로153번길 76 (운남동, 금구중학교)",
-      "bigArea": "광주"
+      "address": "전남광주통합특별시 광산구 목련로153번길 76 (운남동, 금구중학교)",
+      "bigArea": "전남광주-광주"
     },
     {
       "centerCode": "PBT_N35",
@@ -1754,6 +1784,12 @@
       "bigArea": "경기"
     },
     {
+      "centerCode": "PBT_N65",
+      "centerName": "동서울대 8호관",
+      "address": "경기도 성남시 수정구 복정로 76 (복정동, 동서울대학) 8호관",
+      "bigArea": "경기"
+    },
+    {
       "centerCode": "PBT_N69",
       "centerName": "수현중",
       "address": "경기도 화성시 효행구 봉담읍 상리3길 136 (봉담읍, 수현중학교)",
@@ -1823,6 +1859,30 @@
       "centerCode": "PBT_N84",
       "centerName": "경인교대 경기캠 인문사회관",
       "address": "경기도 안양시 만안구 삼막로 155 (석수동, 경인교육대학교경기캠퍼스) 인문사회관",
+      "bigArea": "경기"
+    },
+    {
+      "centerCode": "PBT_N85",
+      "centerName": "월봉중",
+      "address": "전남광주통합특별시 광산구 산월로 107 (산월동, 월봉중학교)",
+      "bigArea": "전남광주-광주"
+    },
+    {
+      "centerCode": "PBT_N86",
+      "centerName": "대전예술고",
+      "address": "대전광역시 유성구 월드컵대로308번길 33 (상대동, 대전예술고등학교)",
+      "bigArea": "대전"
+    },
+    {
+      "centerCode": "PBT_N87",
+      "centerName": "우석대 교양관",
+      "address": "전북특별자치도 완주군 삼례읍 삼례로 443 (삼례읍, 우석대학교) 우석대 교양관",
+      "bigArea": "전북"
+    },
+    {
+      "centerCode": "PBT_N88",
+      "centerName": "경기영상과학고",
+      "address": "경기도 고양시 일산서구 강선로 8 (주엽동, 경기영상과학고등학교)",
       "bigArea": "경기"
     }
   ]
