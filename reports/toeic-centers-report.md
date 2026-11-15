@@ -1,16 +1,15 @@
 # TOEIC Center Refresh Report
 
 ## Summary
-- Scanned schedules: 32
-- Observed centers: 276
+- Scanned schedules: 31
+- Observed centers: 256
 - CSV centers: 341
 - New centers: 0
-- Stale candidates: 65
+- Stale candidates: 85
 - Changed metadata: 0
 - Manual review: 0
 
 ## Scanned Schedules
-- 2026-10-31 (TOE_581)
 - 2026-11-08 (TOE_582)
 - 2026-11-15 (TOE_583)
 - 2026-11-29 (TOE_584)
@@ -52,28 +51,38 @@
 - DUMMY_003 (unknown) | -
 - DUMMY_SINGLE_001 (unknown) | -
 - PBT_042 (unknown) | -
+- PBT_054 등촌고 | 서울
 - PBT_056 (unknown) | -
+- PBT_089 구로중 | 서울
 - PBT_095 (unknown) | -
 - PBT_112 여명중 | 부산
 - PBT_147 연제중 | 부산
 - PBT_179 (unknown) | -
-- PBT_293 서울전일중 | 서울
+- PBT_229 지산중 | 전남광주-광주
+- PBT_292 한강중 | 서울
 - PBT_360 (unknown) | -
 - PBT_366 충주여중 | 충청
 - PBT_374 천안공고 | 충청
+- PBT_421 광주영천중 | 전남광주-광주
+- PBT_507 창원중앙중 | 경남
 - PBT_529 거창대성고 | 경남
-- PBT_596 대왕중 | 서울
 - PBT_607 (unknown) | -
+- PBT_613 원천중 | 경기
 - PBT_647 (unknown) | -
 - PBT_655 (unknown) | -
 - PBT_662 (unknown) | -
 - PBT_761 (unknown) | -
 - PBT_764 동일공고 | 경기
+- PBT_886 신곡중 | 경기
 - PBT_911 제주중앙여중 | 제주
 - PBT_948 (unknown) | -
 - PBT_957 (unknown) | -
 - PBT_965 (unknown) | -
 - PBT_974 (unknown) | -
+- PBT_A42 대전대 인문사회관 | 대전
+- PBT_B17 약사중 | 울산
+- PBT_C54 부명고 | 경기
+- PBT_C58 숙지고 | 경기
 - PBT_D13 고양일고 | 경기
 - PBT_D33 성지중 | 대구
 - PBT_D44 (unknown) | -
@@ -83,11 +92,13 @@
 - PBT_E56 세명대 학술관 | 충청
 - PBT_F18 장안대 자아실현관 | 경기
 - PBT_H02 인하공전 3호관 | 인천
+- PBT_H28 강릉영동대학교 제1강의동 | 강원
 - PBT_H35 (unknown) | -
 - PBT_H40 (unknown) | -
 - PBT_H68 평택대 이공관 | 경기
 - PBT_H82 동강대 인문사회관 | 광주
 - PBT_H90 (unknown) | -
+- PBT_J05 강남대 교육관 | 경기
 - PBT_K01 목운중 | 서울
 - PBT_M05 고려대세종캠(공공정책관) | 세종
 - PBT_M12 (unknown) | -
@@ -95,23 +106,31 @@
 - PBT_M20 청림중 | 경기
 - PBT_M50 (unknown) | -
 - PBT_M71 (unknown) | -
+- PBT_M78 청천중 | 인천
 - PBT_M91 동탄목동중 | 경기
 - PBT_M93 제주한라대 금호세계교육관A동 | 제주
-- PBT_M97 심학고 | 경기
 - PBT_M98 창원대 경영대학(21호관) | 경남
 - PBT_N03 군산기계공고 | 전북
+- PBT_N07 송파중 | 서울
 - PBT_N08 목포대 정보종합센터 | 전남
+- PBT_N16 용인백현중 | 경기
 - PBT_N17 창원대 인문대학 | 경남
 - PBT_N19 (unknown) | -
 - PBT_N21 창원문성대 기술관(10호관) | 경남
 - PBT_N22 대구남산고 | 대구
+- PBT_N26 인천현송중 | 인천
 - PBT_N33 공주영명고 | 충청
 - PBT_N35 한솔고 | 경기
 - PBT_N50 인하공전 6호관 | 인천
-- PBT_N54 운양고 | 경기
 - PBT_N56 사직중 | 부산
+- PBT_N63 한국방송통신대 성남시학습관 | 경기
 - PBT_N71 인천바이오과학고 | 인천
 - PBT_N77 동아마이스터고 | 대전
+- PBT_N80 포천고 | 경기
+- PBT_N82 제주대 아라캠 언어교육원 | 제주
+- PBT_N83 가좌여중 | 인천
+- PBT_N85 월봉중 | 전남광주-광주
+- PBT_N86 대전예술고 | 대전
 
 ## Changed Metadata
 - None
