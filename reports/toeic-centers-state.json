@@ -1550,6 +1550,12 @@
       "bigArea": "서울"
     },
     {
+      "centerCode": "PBT_M89",
+      "centerName": "동원과학기술대 종합체육관",
+      "address": "경상남도 양산시 명곡로 321 (명곡동, 동원과학기술대학교)",
+      "bigArea": "경남"
+    },
+    {
       "centerCode": "PBT_M91",
       "centerName": "동탄목동중",
       "address": "경기도 화성시 동탄순환대로20길 52 (목동)",
